@@ -14,8 +14,8 @@ import pandas as pd
 
 from common.data import load_yaml, read_jsonl, repo_path
 from common.logging_utils import load_json
-from common.metrics import paired_bootstrap, safe_corr
-from common.report_utils import fmt, plt, quote, save_fig, write_table
+from common.metrics import safe_corr
+from common.report_utils import paired_vs_reference, plt, quote, rl_heldout_table, save_fig, write_table
 from task2_ppo.forks import fork_name
 
 GRAY, INK, MUTED = "#8a8984", "#0b0b0b", "#52514e"
@@ -36,18 +36,6 @@ def conditions(cfg):
 
 
 # ---------------------------------------------------------------- tables
-
-def heldout_table(summaries, label):
-    rows = []
-    for n, s in summaries.items():
-        L = s["length_tokens"]
-        rows.append({"Condition": label[n], "Reward (eff.)": f"{s['reward_mean']:.3f} ± {s['reward_std']:.3f}",
-                     "Raw RM": s["raw_reward_mean"], "KL/token": s["kl_token_mean"], "KL/seq": s["kl_sequence_mean"],
-                     "Entropy": s["entropy_token_mean"], "Len mean ± std": f"{L['mean']:.1f} ± {L['std']:.1f}",
-                     "Len median [IQR]": f"{L['median']:.0f} [{L['q25']:.0f}-{L['q75']:.0f}]",
-                     "EOS rate": s["eos_rate"], "Trunc. rate": s["truncation_rate"], "Repetition": s["repetition_mean"],
-                     "corr(RM, len)": s["corr_reward_vs_length"], "corr(RM, KL)": s["corr_reward_vs_kl_sequence"]})
-    return pd.DataFrame(rows)
 
 
 def standard_table(logs):
@@ -92,24 +80,6 @@ def kl_row(name, label, logs, s):
         "Train len 1st/2nd half": f"{m(first, 'response_tokens'):.0f} / {m(last, 'response_tokens'):.0f}",
     }
 
-
-def paired_vs_midpoint(gens, label, names):
-    rows = []
-    base = {r["prompt_id"]: r for r in gens["midpoint"]}
-    ci = lambda d: f"{d['mean_diff']:+.3f} [{d['ci95'][0]:+.3f}, {d['ci95'][1]:+.3f}]"
-    for n in names:
-        if n == "midpoint" or n not in gens:
-            continue
-        pairs = [(base[r["prompt_id"]], r) for r in gens[n] if r["prompt_id"] in base]
-        get = lambda k: ([a[k] for a, _ in pairs], [b[k] for _, b in pairs])
-        rows.append({"Condition - midpoint": label[n],
-                     "Raw RM": ci(paired_bootstrap(*get("raw_reward"))),
-                     "Reward (eff.)": ci(paired_bootstrap(*get("reward"))),
-                     "Len (tokens)": ci(paired_bootstrap(*get("response_tokens"))),
-                     "Truncated": ci(paired_bootstrap(*[[float(x) for x in v] for v in get("truncated")])),
-                     "Repetition": ci(paired_bootstrap(*get("repetition"))),
-                     "KL/seq": ci(paired_bootstrap(*get("kl_sum")))})
-    return pd.DataFrame(rows)
 
 
 def reward_by_kl_bins(gens, label, names, bins=4):
@@ -339,7 +309,7 @@ def main():
     train = {n: load_json(res / "train_logs" / f"{n}_summary.json") for n in logs}
 
     if summaries:
-        write_table(heldout_table(summaries, label), tables, "heldout_all_conditions",
+        write_table(rl_heldout_table(summaries, label), tables, "heldout_all_conditions",
                     "Held-out evaluation (rl_prompt_pool_eval, identical sampling/seed, cap "
                     f"{cfg['eval_max_response_length']} tokens). Reward (eff.) includes the missing-EOS penalty.")
     if "standard" in logs:
@@ -389,7 +359,7 @@ def main():
         per_update.to_csv(tables / "kl_forks_per_update.csv", index=False)
     weakest_kl = fork_name(float(cfg["clip_epsilon"]), min(map(float, cfg["kl_values"])))
     if "midpoint" in gens:
-        write_table(paired_vs_midpoint(gens, label, names), tables, "paired_vs_midpoint",
+        write_table(paired_vs_reference(gens, label, names), tables, "paired_vs_midpoint",
                     "Paired held-out differences versus the PPO midpoint (same prompts; mean, bootstrap 95% CI).")
         write_table(reward_by_kl_bins(gens, label, names), tables, "reward_by_kl_quartile",
                     "Within each condition: held-out responses grouped by quartile of sequence KL from the reference.")

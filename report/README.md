@@ -125,3 +125,59 @@ sampling seed at each update, so the differences are paired. Then check the held
 Use `figures/reward_vs_kl.*` (condition means plus per-response scatter), `tables/reward_by_kl_quartile.*`,
 `tables/paired_vs_midpoint.*` (reward change against length, truncation and repetition change, with CIs),
 `corr(RM, len)` and `corr(RM, KL)` in `tables/heldout_all_conditions.*`, and the agree/disagree candidates. Verify each candidate by hand.
+
+## Task 3: GRPO (`report/task3/`)
+
+Regenerate with `python -m task3_grpo.make_report --config configs/grpo.yaml` (after `bash task3_grpo/run_all.sh`).
+Raw results are in `results/task3_grpo/`:
+- `train_logs/<run>.jsonl`: one record per update, with the K rewards, advantages, lengths, truncation and in-loss flags, per-completion gradient norms and responses.
+- `train_logs/<run>_summary.json`: prompt IDs, generated tokens, wall-clock time, peak VRAM and hyperparameters.
+- `eval/<condition>/{summary.json, generations.jsonl}`
+- `group_size.json`
+- `grpo_validation.json`
+
+Conditions: `sft`, `midpoint`, `standard`, `fork_grpo`, `fork_dr_grpo`.
+
+### Setup facts to state in the report
+
+| Item | Value | Source |
+|---|---|---|
+| Start state | Supplied `grpo_midpoint_policy` LoRA (50 TRL steps, K=4, max length 512 per `checkpoints/grpo_midpoint_metadata.json`), restored identically for every run | `configs/grpo.yaml` |
+| Standard run | 20 updates, 1 prompt per update, K=4 completions, 1 policy epoch, lr 5e-6, eps=0.20, beta=0.10 (k3 KL term in the loss), max completion 512, truncated completions masked from the loss, grad-clip 1.0 | `train_logs/standard_summary.json` |
+| Reward / advantages | Raw learned reward (`yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback`, 8-bit); A_k = (r_k - mean_group) / (std_group + 1e-6), computed per prompt group. Truncated completions stay in the group statistics but contribute no loss tokens | `grpo.py`, `continue_train.py` |
+| Normalization forks | 8 updates each from the same midpoint; same prompts, sampling seeds, K, reward, beta, eps and cap. `grpo`: sequence weight 1/T_k (token weight 1/(K T_k)). `dr_grpo`: constant 1/512 (token weight 1/(K*512)). Advantages are unchanged | `compare_normalization.py`, `grpo_validation.json` |
+| Length-conditioned gradient statistic | Before each fork update, the policy-term gradient norm of every completion on its own (its share of the batch loss), against its length. Reported as short-vs-long mean grad norm (split at the pooled median), the long share of the total, and corr(length, grad norm), also per unit of advantage | `tables/normalization_comparison.*` |
+| Group-size regrouping (equal generations) | Each prompt's 8 cached completions, ordered by `generation_index`, are split into 8/K consecutive groups. All K use the same 192 completions of 24 prompts. The all-subsets average is a robustness check | `group_size.json` -> `regrouping_rule` |
+| Difficulty bins (defined once) | Tertiles of the prompt's mean reward over its 8 cached completions (lowest third = hard) | `group_size.json` -> `difficulty_rule`, `bins` |
+| Informative group | Within-group reward std > 1e-6 (tolerance of the released helper). For a continuous reward this is rarely violated, so near-zero rates (std < 0.1 / 0.25 / 0.5) are reported as a sensitivity check | `tables/group_size_*` |
+| Prompts / evaluation | Same rules as Task 2: training uses train prompts of at most 256 chat tokens in a seeded order; held-out uses all 200 eval prompts at temperature 0.7 / top-p 0.9, seed 6304, max 768 tokens | `eval/*/summary.json` |
+| Precision | fp16 base with fp32 LoRA and loss scaling; dropout set to 0, so the single policy epoch starts at ratio exactly 1 | `continue_train.py` |
+| Fixed defect | `group_relative_advantages` used batch-level mean/std; fixed to per-group. With the bug, a zero-variance group got non-zero advantages, and shifting one prompt's rewards changed every advantage | `grpo_validation.json` |
+
+### Required evidence → files
+
+| Required evidence | Files |
+|---|---|
+| Standard GRPO continuation diagnostics (reward, KL, within-group std, uninformative fraction, policy loss, grad norm, entropy, length; peak VRAM, wall-clock time) | `figures/standard_continuation_diagnostics.*`, `tables/standard_continuation_per_update.*`, `tables/standard_continuation_compute.*` |
+| Equal-generation group-size study (informative rate, mean within-group std, variance of the relative signal, overall and per difficulty bin; binning rule) | `tables/group_size_equal_generations.*`, `tables/group_size_by_difficulty.*`, `figures/group_size_by_difficulty.*`, `figures/prompt_difficulty_vs_std.*` |
+| Canonical vs Dr. GRPO (held-out reward, KL, length, and a length-conditioned gradient statistic) | `tables/normalization_comparison.*`, `figures/normalization_comparison.*`, `tables/heldout_all_conditions.*` |
+| Qualitative examples (normalization / group informativeness) | `qualitative/group_informativeness_examples.md`, `qualitative/training_group_examples.md`, `qualitative/normalization_examples.md` |
+| Implementation validation | `grpo_validation.json` |
+
+### Research questions → evidence to examine
+
+**RQ1: How does group size change the probability of a useful relative signal, and which difficulty regimes benefit most from larger K?**
+Use `tables/group_size_equal_generations.*` (informative rate, mean std, Var(r - group mean), near-zero-std fractions, all-subsets columns)
+and `tables/group_size_by_difficulty.*` / `figures/group_size_by_difficulty.*` (the same metrics for the hard, medium and easy bins).
+`figures/prompt_difficulty_vs_std.*` shows how reward spread depends on difficulty.
+
+**RQ2: Does sequence normalization change response length or how gradient magnitude is spread across short and long completions? Is that associated with quality?**
+Use the gradient columns of `tables/normalization_comparison.*` and the scatter in `figures/normalization_comparison.*`
+(grad norm vs length); the per-token weight tables in `grpo_validation.json` show the mechanism. For length,
+use the train/held-out length columns and the held-out boxplot. For quality, use the held-out raw RM and paired differences
+(`tables/paired_vs_midpoint.*`), plus `qualitative/normalization_examples.md`.
+
+**RQ3: With the critic removed, what is the main source of instability or sample inefficiency in the observed run?**
+Use `tables/signal_and_sample_efficiency.*` (uninformative groups, masked truncated completions, zero-advantage completions,
+tokens in loss / generated, group-std range, grad-norm CV, corr(group std, grad norm)), the reward-dot and masked-count panels in
+`figures/standard_continuation_diagnostics.*`, and `qualitative/training_group_examples.md`.

@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from common.metrics import paired_bootstrap
+
 plt.rcParams.update({
     "font.size": 9, "axes.spines.top": False, "axes.spines.right": False,
     "axes.grid": True, "grid.color": "#e5e4e0", "grid.linewidth": 0.6, "axes.axisbelow": True,
@@ -59,3 +61,35 @@ def quote(text: str, n: int = 1500) -> str:
     return "\n".join("> " + line for line in clip_text(text, n).splitlines()) or "> (empty)"
 
 
+def rl_heldout_table(summaries, label):
+    """One row per condition from common.rl_utils held-out summaries."""
+    rows = []
+    for n, s in summaries.items():
+        L = s["length_tokens"]
+        rows.append({"Condition": label[n], "Reward (eff.)": f"{s['reward_mean']:.3f} ± {s['reward_std']:.3f}",
+                     "Raw RM": s["raw_reward_mean"], "KL/token": s["kl_token_mean"], "KL/seq": s["kl_sequence_mean"],
+                     "Entropy": s["entropy_token_mean"], "Len mean ± std": f"{L['mean']:.1f} ± {L['std']:.1f}",
+                     "Len median [IQR]": f"{L['median']:.0f} [{L['q25']:.0f}-{L['q75']:.0f}]",
+                     "EOS rate": s["eos_rate"], "Trunc. rate": s["truncation_rate"], "Repetition": s["repetition_mean"],
+                     "corr(RM, len)": s["corr_reward_vs_length"], "corr(RM, KL)": s["corr_reward_vs_kl_sequence"]})
+    return pd.DataFrame(rows)
+
+
+def paired_vs_reference(gens, label, names, ref="midpoint"):
+    """Paired per-prompt differences of each condition against `ref` (mean, bootstrap 95% CI)."""
+    rows = []
+    base = {r["prompt_id"]: r for r in gens[ref]}
+    ci = lambda d: f"{d['mean_diff']:+.3f} [{d['ci95'][0]:+.3f}, {d['ci95'][1]:+.3f}]"
+    for n in names:
+        if n == ref or n not in gens:
+            continue
+        pairs = [(base[r["prompt_id"]], r) for r in gens[n] if r["prompt_id"] in base]
+        get = lambda k: ([a[k] for a, _ in pairs], [b[k] for _, b in pairs])
+        rows.append({f"Condition - {ref}": label[n],
+                     "Raw RM": ci(paired_bootstrap(*get("raw_reward"))),
+                     "Reward (eff.)": ci(paired_bootstrap(*get("reward"))),
+                     "Len (tokens)": ci(paired_bootstrap(*get("response_tokens"))),
+                     "Truncated": ci(paired_bootstrap(*[[float(x) for x in v] for v in get("truncated")])),
+                     "Repetition": ci(paired_bootstrap(*get("repetition"))),
+                     "KL/seq": ci(paired_bootstrap(*get("kl_sum")))})
+    return pd.DataFrame(rows)

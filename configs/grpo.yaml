@@ -16,3 +16,17 @@ output: outputs/task3_grpo/standard
 results_dir: results/task3_grpo
 group_cache: cached/grpo_k_cache.jsonl
 cache_generation_cap: 768
+
+# --- Student additions (Task 3 implementation) ---
+# Rollouts: same fixed prompt order rule as Task 2 (train prompts that fit in max_prompt_length,
+# seeded shuffle); K = num_generations samples per prompt with the base `generation` settings.
+# Rewards: raw learned reward (no EOS penalty in this config); truncated completions stay in the
+# group statistics but are masked from the loss (mask_truncated_completions).
+# policy_epochs=1 => old policy = current policy (ratio 1); dropout is disabled so this is exact.
+# Dr. GRPO condition = loss_type "dr_grpo" (constant max_completion_length normalization);
+# advantages, reward, beta, eps, prompts and generation settings are identical across the two.
+eval_max_response_length: 768   # held-out cap (same as Task 2 evaluation and cache_generation_cap)
+reward_max_length: 1280
+eval_generation_batch_size: 16
+eval_score_batch_size: 2
+difficulty_bins: 3               # group-size study: tertiles of the prompt's mean K=8 cached reward

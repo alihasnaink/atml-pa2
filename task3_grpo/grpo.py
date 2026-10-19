@@ -9,12 +9,31 @@ def group_relative_advantages(rewards: torch.Tensor, group_ids: torch.Tensor, ep
     """Return one scalar advantage per sampled completion.
 
     `group_ids[i]` identifies which prompt produced reward `rewards[i]`.
-    Validate this implementation against the group-relative definition in the assignment manual.
+
+    A_k = (r_k - mu_r) / (sigma_r + eps), with mu_r and sigma_r computed WITHIN the
+    group of completions sampled for the same prompt.
+
+    Fix of the released defect: the starter normalized with the mean/std of the
+    whole batch, ignoring `group_ids`. That compares completions of different
+    prompts (easy prompts get positive, hard prompts negative advantages) and a
+    zero-variance group no longer yields zero advantage.
     """
-    # Starter implementation: students must validate the grouping logic carefully.
-    mean = rewards.mean()
-    std = rewards.std(unbiased=False).clamp_min(eps)
-    return (rewards - mean) / std
+    adv = torch.zeros_like(rewards)
+    for g in torch.unique(group_ids):
+        sel = group_ids == g
+        r = rewards[sel]
+        adv[sel] = (r - r.mean()) / (r.std(unbiased=False) + eps)
+    return adv
+
+
+def group_reward_std(rewards: torch.Tensor, group_ids: torch.Tensor):
+    """Within-group reward std (population) per group, in order of torch.unique(group_ids)."""
+    return torch.stack([rewards[group_ids == g].std(unbiased=False) for g in torch.unique(group_ids)])
+
+
+def is_informative(group_std: torch.Tensor, eps: float = 1e-6):
+    """A group is informative when its reward std exceeds the numerical tolerance used above."""
+    return group_std > eps
 
 
 def grpo_policy_loss(

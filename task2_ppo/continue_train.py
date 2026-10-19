@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 import argparse
-import random
 
 import torch
-import torch.nn.functional as F
 from torch.optim import AdamW
 
 from common.data import load_yaml, prompt_messages, read_jsonl, repo_path
@@ -22,32 +20,11 @@ from common.models import (
     trainable_parameters,
     value_parameter_groups,
 )
+from common.rl_utils import effective_reward, rollout_prompt_order, token_entropy
 from task2_ppo.ppo import clip_diagnostics, compute_gae, normalize_advantages, ppo_policy_loss, shaped_rewards, value_mse_loss
 
 
-# ---------------------------------------------------------------- shared helpers (also used by analyze_clipping / evaluate)
-
-def prompt_token_count(tokenizer, messages) -> int:
-    return len(tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True))
-
-
-def rollout_prompt_order(rows, tokenizer, cfg):
-    """Fixed prompt sequence shared by every run: train prompts that fit in max_prompt_length,
-    in a seeded shuffle. Update u uses prompt u, so forks reuse the standard run's first prompts."""
-    limit = int(cfg["max_prompt_length"])
-    kept = [r for r in rows if prompt_token_count(tokenizer, prompt_messages(r)) <= limit]
-    kept_ids = {r["prompt_id"] for r in kept}
-    dropped = [r["prompt_id"] for r in rows if r["prompt_id"] not in kept_ids]
-    random.Random(int(cfg["seed"])).shuffle(kept)
-    return kept, dropped
-
-
-def token_entropy(logits, mask):
-    """Mean full-distribution entropy over valid response tokens (logits: [B, T, V])."""
-    logp = F.log_softmax(logits.float(), dim=-1)
-    ent = -(logp.exp() * logp).sum(-1)
-    return masked_mean(ent, mask)
-
+# ---------------------------------------------------------------- critic helpers (also used by analyze_clipping)
 
 def response_values(value_model, sequences, attention_mask, prompt_width, steps):
     """V(s_t) for response token t = critic output at the position that predicts token t."""
@@ -59,11 +36,6 @@ def explained_variance(values, returns, mask):
     v, r = values[mask.bool()], returns[mask.bool()]
     var_r = r.var(unbiased=False)
     return float(1 - (r - v).var(unbiased=False) / var_r) if var_r > 0 else float("nan")
-
-
-def effective_reward(raw: float, truncated: bool, cfg) -> float:
-    """Terminal learned reward with the release's penalty for responses cut at the cap without EOS."""
-    return raw - float(cfg["missing_eos_penalty"]) if truncated else raw
 
 
 # ---------------------------------------------------------------- setup

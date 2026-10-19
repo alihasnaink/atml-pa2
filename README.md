@@ -133,12 +133,31 @@ report material to `report/task2/`.
 
 ### Task 3 - GRPO
 
+Everything at once (2-GPU split; this is what `kaggle/task3_grpo_kaggle.ipynb` runs):
+
 ```bash
-python -m task3_grpo.continue_train --config configs/grpo.yaml --run-name standard
-python -m task3_grpo.evaluate --config configs/grpo.yaml --adapter outputs/task3_grpo/standard --name standard
-python -m task3_grpo.analyze_group_size --config configs/grpo.yaml
-python -m task3_grpo.compare_normalization --config configs/grpo.yaml
+bash task3_grpo/run_all.sh
 ```
+
+Step by step:
+
+```bash
+python -m task3_grpo.validate_grpo         --config configs/grpo.yaml                     # checks the corrected advantages/loss (CPU)
+python -m task3_grpo.continue_train        --config configs/grpo.yaml --run-name standard  # Step 1: 20-update continuation
+python -m task3_grpo.evaluate              --config configs/grpo.yaml --name sft           # SFT reference policy
+python -m task3_grpo.evaluate              --config configs/grpo.yaml --adapter checkpoints/grpo_midpoint_policy --name midpoint
+python -m task3_grpo.evaluate              --config configs/grpo.yaml --adapter outputs/task3_grpo/standard --name standard
+python -m task3_grpo.analyze_group_size    --config configs/grpo.yaml                     # Step 2: K = 2/4/8 on the cache (CPU)
+python -m task3_grpo.compare_normalization --config configs/grpo.yaml                     # Step 3: GRPO vs Dr. GRPO forks
+python -m task3_grpo.make_report           --config configs/grpo.yaml                     # tables/figures -> report/task3/
+```
+
+Fixed defect: `task3_grpo/grpo.py::group_relative_advantages` normalized rewards with the mean/std of the
+whole batch, ignoring `group_ids`; GRPO normalizes within each prompt's group. Results go to
+`results/task3_grpo/`, adapters to `outputs/task3_grpo/`, report material to `report/task3/`.
+
+Shared code: the held-out RL evaluation protocol and rollout helpers used by Tasks 2 and 3 live in
+`common/rl_utils.py`; table/figure helpers for all report builders live in `common/report_utils.py`.
 
 ### Task 4 - Safety calibration
 
