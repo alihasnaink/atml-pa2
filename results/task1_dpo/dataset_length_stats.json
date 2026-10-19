@@ -1,0 +1,72 @@
+{
+  "dpo_standard_train": {
+    "file": "data/dpo_standard_train.jsonl",
+    "n": 1500,
+    "frac_chosen_longer": 0.5626666666666666,
+    "frac_rejected_longer": 0.422,
+    "chosen_tokens_mean": 282.11466666666666,
+    "rejected_tokens_mean": 239.66466666666668,
+    "length_diff_mean": 42.45,
+    "length_diff_median": 18.0,
+    "corr_score_gap_vs_length_diff": 0.04140954529978782,
+    "rule_strata": {
+      "preferred_longer": 0.4646666666666667,
+      "length_matched": 0.138,
+      "rejected_longer": 0.324,
+      "intermediate": 0.07333333333333333
+    }
+  },
+  "dpo_standard_eval": {
+    "file": "data/dpo_standard_eval.jsonl",
+    "n": 300,
+    "frac_chosen_longer": 0.5333333333333333,
+    "frac_rejected_longer": 0.44333333333333336,
+    "chosen_tokens_mean": 274.4033333333333,
+    "rejected_tokens_mean": 243.75666666666666,
+    "length_diff_mean": 30.64666666666667,
+    "length_diff_median": 5.0,
+    "corr_score_gap_vs_length_diff": 0.17994207225240044,
+    "rule_strata": {
+      "preferred_longer": 0.4066666666666667,
+      "length_matched": 0.14,
+      "rejected_longer": 0.35333333333333333,
+      "intermediate": 0.1
+    }
+  },
+  "dpo_length_train": {
+    "file": "data/dpo_length_balanced_train.jsonl",
+    "n": 1500,
+    "frac_chosen_longer": 0.49133333333333334,
+    "frac_rejected_longer": 0.486,
+    "chosen_tokens_mean": 156.85533333333333,
+    "rejected_tokens_mean": 151.692,
+    "length_diff_mean": 5.163333333333333,
+    "length_diff_median": 0.0,
+    "corr_score_gap_vs_length_diff": 0.05133840846018385,
+    "rule_strata": {
+      "preferred_longer": 0.3333333333333333,
+      "length_matched": 0.3333333333333333,
+      "rejected_longer": 0.3333333333333333,
+      "intermediate": 0.0
+    },
+    "rule_agrees_with_supplied_label": 1.0
+  },
+  "dpo_length_eval": {
+    "file": "data/dpo_length_stratified_eval.jsonl",
+    "n": 246,
+    "frac_chosen_longer": 0.483739837398374,
+    "frac_rejected_longer": 0.5,
+    "chosen_tokens_mean": 147.45528455284554,
+    "rejected_tokens_mean": 144.760162601626,
+    "length_diff_mean": 2.6951219512195124,
+    "length_diff_median": -0.5,
+    "corr_score_gap_vs_length_diff": -0.001542256527379516,
+    "rule_strata": {
+      "preferred_longer": 0.3333333333333333,
+      "length_matched": 0.3333333333333333,
+      "rejected_longer": 0.3333333333333333,
+      "intermediate": 0.0
+    },
+    "rule_agrees_with_supplied_label": 1.0
+  }
+}

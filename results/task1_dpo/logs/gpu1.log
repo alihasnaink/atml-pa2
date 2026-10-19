@@ -1,0 +1,197 @@
+[gpu1] Required beta values: [0.03, 0.1, 0.3]
+[gpu1] Short-run examples per condition: 600
+[gpu1] [beta_0.03] beta=0.03 examples=600 dropped=57 micro_batches/epoch=300 accum=8
+[gpu1] [beta_0.03] step 1 seen 16 loss 0.6931 acc 0.000 margin 0.000 gnorm 0.571 t 0.2m
+[gpu1] [beta_0.03] step 2 seen 32 loss 0.6938 acc 0.438 margin -0.044 gnorm 0.593 t 0.4m
+[gpu1] [beta_0.03] step 3 seen 48 loss 0.6932 acc 0.500 margin -0.004 gnorm 0.665 t 0.7m
+[gpu1] [beta_0.03] step 4 seen 64 loss 0.6933 acc 0.500 margin -0.010 gnorm 0.685 t 0.9m
+[gpu1] [beta_0.03] step 5 seen 80 loss 0.6924 acc 0.688 margin 0.049 gnorm 0.620 t 1.1m
+[gpu1] [beta_0.03] step 6 seen 96 loss 0.6924 acc 0.500 margin 0.047 gnorm 0.689 t 1.3m
+[gpu1] [beta_0.03] step 7 seen 112 loss 0.6923 acc 0.625 margin 0.054 gnorm 0.671 t 1.6m
+[gpu1] [beta_0.03] step 8 seen 128 loss 0.6923 acc 0.750 margin 0.055 gnorm 0.618 t 1.9m
+[gpu1] [beta_0.03] step 9 seen 144 loss 0.6924 acc 0.562 margin 0.052 gnorm 0.599 t 2.1m
+[gpu1] [beta_0.03] step 10 seen 160 loss 0.6918 acc 0.688 margin 0.087 gnorm 0.554 t 2.4m
+[gpu1] [beta_0.03] step 11 seen 176 loss 0.6937 acc 0.562 margin -0.034 gnorm 0.542 t 2.6m
+[gpu1] [beta_0.03] step 12 seen 192 loss 0.6917 acc 0.688 margin 0.093 gnorm 0.589 t 2.9m
+[gpu1] [beta_0.03] step 13 seen 208 loss 0.6914 acc 0.812 margin 0.119 gnorm 0.638 t 3.2m
+[gpu1] [beta_0.03] step 14 seen 224 loss 0.6932 acc 0.500 margin -0.001 gnorm 0.585 t 3.4m
+[gpu1] [beta_0.03] step 15 seen 240 loss 0.6932 acc 0.562 margin -0.005 gnorm 0.570 t 3.7m
+[gpu1] [beta_0.03] step 16 seen 256 loss 0.6924 acc 0.688 margin 0.052 gnorm 0.625 t 3.9m
+[gpu1] [beta_0.03] step 17 seen 272 loss 0.6925 acc 0.500 margin 0.045 gnorm 0.628 t 4.2m
+[gpu1] [beta_0.03] step 18 seen 288 loss 0.6927 acc 0.562 margin 0.027 gnorm 0.698 t 4.5m
+[gpu1] [beta_0.03] step 19 seen 304 loss 0.6927 acc 0.625 margin 0.028 gnorm 0.596 t 4.7m
+[gpu1] [beta_0.03] step 20 seen 320 loss 0.6919 acc 0.688 margin 0.081 gnorm 0.592 t 5.0m
+[gpu1] [beta_0.03] step 21 seen 336 loss 0.6914 acc 0.625 margin 0.116 gnorm 0.648 t 5.3m
+[gpu1] [beta_0.03] step 22 seen 352 loss 0.6923 acc 0.625 margin 0.055 gnorm 0.529 t 5.4m
+[gpu1] [beta_0.03] step 23 seen 368 loss 0.6914 acc 0.750 margin 0.118 gnorm 0.561 t 5.6m
+[gpu1] [beta_0.03] step 24 seen 384 loss 0.6920 acc 0.562 margin 0.075 gnorm 0.604 t 5.9m
+[gpu1] [beta_0.03] step 25 seen 400 loss 0.6915 acc 0.750 margin 0.108 gnorm 0.719 t 6.2m
+[gpu1] [beta_0.03] step 26 seen 416 loss 0.6890 acc 0.562 margin 0.275 gnorm 0.630 t 6.4m
+[gpu1] [beta_0.03] step 27 seen 432 loss 0.6914 acc 0.688 margin 0.115 gnorm 0.611 t 6.7m
+[gpu1] [beta_0.03] step 28 seen 448 loss 0.6912 acc 0.625 margin 0.130 gnorm 0.601 t 7.0m
+[gpu1] [beta_0.03] step 29 seen 464 loss 0.6898 acc 0.750 margin 0.225 gnorm 0.652 t 7.2m
+[gpu1] [beta_0.03] step 30 seen 480 loss 0.6964 acc 0.562 margin -0.213 gnorm 0.688 t 7.5m
+[gpu1] [beta_0.03] step 31 seen 496 loss 0.6891 acc 0.812 margin 0.272 gnorm 0.515 t 7.7m
+[gpu1] [beta_0.03] step 32 seen 512 loss 0.6923 acc 0.500 margin 0.061 gnorm 0.566 t 7.9m
+[gpu1] [beta_0.03] step 33 seen 528 loss 0.6915 acc 0.625 margin 0.111 gnorm 0.614 t 8.2m
+[gpu1] [beta_0.03] step 34 seen 544 loss 0.6920 acc 0.562 margin 0.077 gnorm 0.622 t 8.5m
+[gpu1] [beta_0.03] step 35 seen 560 loss 0.6909 acc 0.500 margin 0.153 gnorm 0.909 t 8.7m
+[gpu1] [beta_0.03] step 36 seen 576 loss 0.6892 acc 0.750 margin 0.269 gnorm 0.610 t 9.0m
+[gpu1] [beta_0.03] step 37 seen 592 loss 0.6914 acc 0.688 margin 0.117 gnorm 0.528 t 9.2m
+[gpu1] [beta_0.03] step 38 seen 600 loss 0.6894 acc 0.750 margin 0.248 gnorm 0.781 t 9.3m
+[gpu1] [beta_0.03] saved adapter to /kaggle/working/repo/outputs/task1_dpo/beta_0.03 (9.3 min)
+[gpu1] [eval beta_0.03] adapter=outputs/task1_dpo/beta_0.03 beta=0.03 heldout=289 stratified=235
+[gpu1] [eval beta_0.03] pair metrics done
+[gpu1]   generated 16/289
+[gpu1]   generated 32/289
+[gpu1]   generated 48/289
+[gpu1]   generated 64/289
+[gpu1]   generated 80/289
+[gpu1]   generated 96/289
+[gpu1]   generated 112/289
+[gpu1]   generated 128/289
+[gpu1]   generated 144/289
+[gpu1]   generated 160/289
+[gpu1]   generated 176/289
+[gpu1]   generated 192/289
+[gpu1]   generated 208/289
+[gpu1]   generated 224/289
+[gpu1]   generated 240/289
+[gpu1]   generated 256/289
+[gpu1]   generated 272/289
+[gpu1]   generated 288/289
+[gpu1]   generated 289/289
+[gpu1]   generated 16/40
+[gpu1]   generated 32/40
+[gpu1]   generated 40/40
+[gpu1] [eval beta_0.03] acc=0.616 KL=-0.0001 reward=1.356 len=155.4 wl=0.50 (12.0 min)
+[gpu1] [beta_0.10] beta=0.1 examples=600 dropped=57 micro_batches/epoch=300 accum=8
+[gpu1] [beta_0.10] step 1 seen 16 loss 0.6931 acc 0.000 margin 0.000 gnorm 1.902 t 0.2m
+[gpu1] [beta_0.10] step 2 seen 32 loss 0.6952 acc 0.312 margin -0.041 gnorm 1.979 t 0.5m
+[gpu1] [beta_0.10] step 3 seen 48 loss 0.6949 acc 0.312 margin -0.035 gnorm 2.221 t 0.7m
+[gpu1] [beta_0.10] step 4 seen 64 loss 0.6949 acc 0.438 margin -0.034 gnorm 2.292 t 1.0m
+[gpu1] [beta_0.10] step 5 seen 80 loss 0.6932 acc 0.500 margin -0.000 gnorm 2.067 t 1.2m
+[gpu1] [beta_0.10] step 6 seen 96 loss 0.6893 acc 0.750 margin 0.077 gnorm 2.285 t 1.5m
+[gpu1] [beta_0.10] step 7 seen 112 loss 0.6902 acc 0.562 margin 0.060 gnorm 2.230 t 1.7m
+[gpu1] [beta_0.10] step 8 seen 128 loss 0.6909 acc 0.562 margin 0.046 gnorm 2.054 t 2.0m
+[gpu1] [beta_0.10] step 9 seen 144 loss 0.6922 acc 0.500 margin 0.018 gnorm 1.998 t 2.2m
+[gpu1] [beta_0.10] step 10 seen 160 loss 0.6878 acc 0.812 margin 0.107 gnorm 1.837 t 2.5m
+[gpu1] [beta_0.10] step 11 seen 176 loss 0.6933 acc 0.625 margin -0.002 gnorm 1.809 t 2.8m
+[gpu1] [beta_0.10] step 12 seen 192 loss 0.6890 acc 0.812 margin 0.084 gnorm 1.956 t 3.0m
+[gpu1] [beta_0.10] step 13 seen 208 loss 0.6895 acc 0.625 margin 0.073 gnorm 2.119 t 3.3m
+[gpu1] [beta_0.10] step 14 seen 224 loss 0.6922 acc 0.688 margin 0.022 gnorm 1.951 t 3.5m
+[gpu1] [beta_0.10] step 15 seen 240 loss 0.6943 acc 0.500 margin -0.020 gnorm 1.908 t 3.8m
+[gpu1] [beta_0.10] step 16 seen 256 loss 0.6903 acc 0.562 margin 0.058 gnorm 2.079 t 4.0m
+[gpu1] [beta_0.10] step 17 seen 272 loss 0.6904 acc 0.562 margin 0.057 gnorm 2.081 t 4.3m
+[gpu1] [beta_0.10] step 18 seen 288 loss 0.6917 acc 0.438 margin 0.030 gnorm 2.321 t 4.6m
+[gpu1] [beta_0.10] step 19 seen 304 loss 0.6940 acc 0.562 margin -0.015 gnorm 1.994 t 4.8m
+[gpu1] [beta_0.10] step 20 seen 320 loss 0.6887 acc 0.688 margin 0.094 gnorm 1.962 t 5.1m
+[gpu1] [beta_0.10] step 21 seen 336 loss 0.6846 acc 0.625 margin 0.176 gnorm 2.138 t 5.4m
+[gpu1] [beta_0.10] step 22 seen 352 loss 0.6907 acc 0.625 margin 0.049 gnorm 1.760 t 5.6m
+[gpu1] [beta_0.10] step 23 seen 368 loss 0.6882 acc 0.750 margin 0.100 gnorm 1.862 t 5.8m
+[gpu1] [beta_0.10] step 24 seen 384 loss 0.6891 acc 0.625 margin 0.085 gnorm 2.002 t 6.0m
+[gpu1] [beta_0.10] step 25 seen 400 loss 0.6882 acc 0.750 margin 0.103 gnorm 2.379 t 6.3m
+[gpu1] [beta_0.10] step 26 seen 416 loss 0.6801 acc 0.500 margin 0.269 gnorm 2.065 t 6.5m
+[gpu1] [beta_0.10] step 27 seen 432 loss 0.6868 acc 0.688 margin 0.131 gnorm 2.023 t 6.8m
+[gpu1] [beta_0.10] step 28 seen 448 loss 0.6870 acc 0.625 margin 0.127 gnorm 1.985 t 7.1m
+[gpu1] [beta_0.10] step 29 seen 464 loss 0.6821 acc 0.688 margin 0.228 gnorm 2.141 t 7.4m
+[gpu1] [beta_0.10] step 30 seen 480 loss 0.7053 acc 0.500 margin -0.231 gnorm 2.322 t 7.6m
+[gpu1] [beta_0.10] step 31 seen 496 loss 0.6791 acc 0.812 margin 0.286 gnorm 1.689 t 7.8m
+[gpu1] [beta_0.10] step 32 seen 512 loss 0.6900 acc 0.562 margin 0.069 gnorm 1.868 t 8.1m
+[gpu1] [beta_0.10] step 33 seen 528 loss 0.6877 acc 0.625 margin 0.116 gnorm 2.032 t 8.3m
+[gpu1] [beta_0.10] step 34 seen 544 loss 0.6893 acc 0.500 margin 0.084 gnorm 2.068 t 8.6m
+[gpu1] [beta_0.10] step 35 seen 560 loss 0.6856 acc 0.625 margin 0.160 gnorm 2.996 t 8.9m
+[gpu1] [beta_0.10] step 36 seen 576 loss 0.6808 acc 0.750 margin 0.261 gnorm 2.005 t 9.1m
+[gpu1] [beta_0.10] step 37 seen 592 loss 0.6886 acc 0.750 margin 0.096 gnorm 1.751 t 9.3m
+[gpu1] [beta_0.10] step 38 seen 600 loss 0.6791 acc 0.750 margin 0.284 gnorm 2.566 t 9.4m
+[gpu1] [beta_0.10] saved adapter to /kaggle/working/repo/outputs/task1_dpo/beta_0.10 (9.4 min)
+[gpu1] [eval beta_0.10] adapter=outputs/task1_dpo/beta_0.10 beta=0.1 heldout=289 stratified=235
+[gpu1] [eval beta_0.10] pair metrics done
+[gpu1]   generated 16/289
+[gpu1]   generated 32/289
+[gpu1]   generated 48/289
+[gpu1]   generated 64/289
+[gpu1]   generated 80/289
+[gpu1]   generated 96/289
+[gpu1]   generated 112/289
+[gpu1]   generated 128/289
+[gpu1]   generated 144/289
+[gpu1]   generated 160/289
+[gpu1]   generated 176/289
+[gpu1]   generated 192/289
+[gpu1]   generated 208/289
+[gpu1]   generated 224/289
+[gpu1]   generated 240/289
+[gpu1]   generated 256/289
+[gpu1]   generated 272/289
+[gpu1]   generated 288/289
+[gpu1]   generated 289/289
+[gpu1]   generated 16/40
+[gpu1]   generated 32/40
+[gpu1]   generated 40/40
+[gpu1] [eval beta_0.10] acc=0.630 KL=-0.0002 reward=1.328 len=155.6 wl=0.50 (12.0 min)
+[gpu1] [beta_0.30] beta=0.3 examples=600 dropped=57 micro_batches/epoch=300 accum=8
+[gpu1] [beta_0.30] step 1 seen 16 loss 0.6931 acc 0.000 margin 0.000 gnorm 5.705 t 0.2m
+[gpu1] [beta_0.30] step 2 seen 32 loss 0.6999 acc 0.438 margin -0.044 gnorm 5.992 t 0.5m
+[gpu1] [beta_0.30] step 3 seen 48 loss 0.6932 acc 0.562 margin 0.001 gnorm 6.651 t 0.7m
+[gpu1] [beta_0.30] step 4 seen 64 loss 0.6913 acc 0.562 margin 0.014 gnorm 6.835 t 1.0m
+[gpu1] [beta_0.30] step 5 seen 80 loss 0.6876 acc 0.625 margin 0.038 gnorm 6.172 t 1.2m
+[gpu1] [beta_0.30] step 6 seen 96 loss 0.6839 acc 0.625 margin 0.063 gnorm 6.829 t 1.5m
+[gpu1] [beta_0.30] step 7 seen 112 loss 0.6870 acc 0.562 margin 0.044 gnorm 6.651 t 1.7m
+[gpu1] [beta_0.30] step 8 seen 128 loss 0.6869 acc 0.688 margin 0.043 gnorm 6.124 t 2.0m
+[gpu1] [beta_0.30] step 9 seen 144 loss 0.6861 acc 0.562 margin 0.048 gnorm 5.923 t 2.2m
+[gpu1] [beta_0.30] step 10 seen 160 loss 0.6796 acc 0.688 margin 0.092 gnorm 5.448 t 2.5m
+[gpu1] [beta_0.30] step 11 seen 176 loss 0.6943 acc 0.500 margin -0.005 gnorm 5.431 t 2.8m
+[gpu1] [beta_0.30] step 12 seen 192 loss 0.6837 acc 0.562 margin 0.066 gnorm 5.783 t 3.0m
+[gpu1] [beta_0.30] step 13 seen 208 loss 0.6779 acc 0.812 margin 0.106 gnorm 6.270 t 3.3m
+[gpu1] [beta_0.30] step 14 seen 224 loss 0.6872 acc 0.688 margin 0.047 gnorm 5.863 t 3.5m
+[gpu1] [beta_0.30] step 15 seen 240 loss 0.6928 acc 0.500 margin 0.011 gnorm 5.784 t 3.8m
+[gpu1] [beta_0.30] step 16 seen 256 loss 0.6873 acc 0.625 margin 0.043 gnorm 6.189 t 4.0m
+[gpu1] [beta_0.30] step 17 seen 272 loss 0.6830 acc 0.375 margin 0.074 gnorm 6.117 t 4.3m
+[gpu1] [beta_0.30] step 18 seen 288 loss 0.6842 acc 0.562 margin 0.064 gnorm 6.844 t 4.6m
+[gpu1] [beta_0.30] step 19 seen 304 loss 0.6929 acc 0.750 margin 0.009 gnorm 6.012 t 4.8m
+[gpu1] [beta_0.30] step 20 seen 320 loss 0.6818 acc 0.625 margin 0.086 gnorm 5.819 t 5.1m
+[gpu1] [beta_0.30] step 21 seen 336 loss 0.6681 acc 0.688 margin 0.182 gnorm 6.254 t 5.4m
+[gpu1] [beta_0.30] step 22 seen 352 loss 0.6840 acc 0.625 margin 0.066 gnorm 5.253 t 5.6m
+[gpu1] [beta_0.30] step 23 seen 368 loss 0.6775 acc 0.625 margin 0.107 gnorm 5.500 t 5.8m
+[gpu1] [beta_0.30] step 24 seen 384 loss 0.6857 acc 0.625 margin 0.060 gnorm 5.932 t 6.0m
+[gpu1] [beta_0.30] step 25 seen 400 loss 0.6745 acc 0.750 margin 0.133 gnorm 6.963 t 6.3m
+[gpu1] [beta_0.30] step 26 seen 416 loss 0.6606 acc 0.562 margin 0.233 gnorm 5.972 t 6.5m
+[gpu1] [beta_0.30] step 27 seen 432 loss 0.6690 acc 0.625 margin 0.171 gnorm 5.922 t 6.8m
+[gpu1] [beta_0.30] step 28 seen 448 loss 0.6794 acc 0.625 margin 0.099 gnorm 5.865 t 7.1m
+[gpu1] [beta_0.30] step 29 seen 464 loss 0.6570 acc 0.688 margin 0.265 gnorm 6.143 t 7.4m
+[gpu1] [beta_0.30] step 30 seen 480 loss 0.7281 acc 0.438 margin -0.205 gnorm 7.184 t 7.6m
+[gpu1] [beta_0.30] step 31 seen 496 loss 0.6497 acc 0.812 margin 0.303 gnorm 4.843 t 7.8m
+[gpu1] [beta_0.30] step 32 seen 512 loss 0.6871 acc 0.625 margin 0.057 gnorm 5.509 t 8.1m
+[gpu1] [beta_0.30] step 33 seen 528 loss 0.6795 acc 0.500 margin 0.111 gnorm 5.978 t 8.4m
+[gpu1] [beta_0.30] step 34 seen 544 loss 0.6821 acc 0.562 margin 0.094 gnorm 6.139 t 8.6m
+[gpu1] [beta_0.30] step 35 seen 560 loss 0.6797 acc 0.500 margin 0.114 gnorm 9.200 t 8.9m
+[gpu1] [beta_0.30] step 36 seen 576 loss 0.6573 acc 0.750 margin 0.271 gnorm 5.827 t 9.1m
+[gpu1] [beta_0.30] step 37 seen 592 loss 0.6867 acc 0.625 margin 0.055 gnorm 5.201 t 9.3m
+[gpu1] [beta_0.30] step 38 seen 600 loss 0.6628 acc 0.750 margin 0.208 gnorm 7.514 t 9.4m
+[gpu1] [beta_0.30] saved adapter to /kaggle/working/repo/outputs/task1_dpo/beta_0.30 (9.4 min)
+[gpu1] [eval beta_0.30] adapter=outputs/task1_dpo/beta_0.30 beta=0.3 heldout=289 stratified=235
+[gpu1] [eval beta_0.30] pair metrics done
+[gpu1]   generated 16/289
+[gpu1]   generated 32/289
+[gpu1]   generated 48/289
+[gpu1]   generated 64/289
+[gpu1]   generated 80/289
+[gpu1]   generated 96/289
+[gpu1]   generated 112/289
+[gpu1]   generated 128/289
+[gpu1]   generated 144/289
+[gpu1]   generated 160/289
+[gpu1]   generated 176/289
+[gpu1]   generated 192/289
+[gpu1]   generated 208/289
+[gpu1]   generated 224/289
+[gpu1]   generated 240/289
+[gpu1]   generated 256/289
+[gpu1]   generated 272/289
+[gpu1]   generated 288/289
+[gpu1]   generated 289/289
+[gpu1]   generated 16/40
+[gpu1]   generated 32/40
+[gpu1]   generated 40/40
+[gpu1] [eval beta_0.30] acc=0.630 KL=-0.0002 reward=1.363 len=156.0 wl=0.50 (12.0 min)

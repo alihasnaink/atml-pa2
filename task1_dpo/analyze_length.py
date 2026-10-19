@@ -19,7 +19,7 @@ import numpy as np
 
 from common.data import load_yaml, preference_responses, read_jsonl, repo_path
 from common.logging_utils import load_json, save_json
-from common.metrics import safe_corr
+from common.metrics import paired_bootstrap, safe_corr
 from common.models import load_tokenizer
 from task1_dpo.evaluate import evaluate_condition
 from task1_dpo.train import run_training
@@ -38,14 +38,6 @@ def length_stratum(chosen_tokens: int, rejected_tokens: int) -> str:
     if rel <= -1 / 6:
         return "rejected_longer"
     return "intermediate"
-
-
-def paired_bootstrap(a, b, n_boot=2000, seed=0):
-    """Mean of (b - a) over paired items with a 95% bootstrap CI."""
-    d = np.asarray(b, dtype=float) - np.asarray(a, dtype=float)
-    rng = np.random.default_rng(seed)
-    boots = d[rng.integers(0, len(d), size=(n_boot, len(d)))].mean(1)
-    return {"mean_diff": float(d.mean()), "ci95": [float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))], "n": len(d)}
 
 
 def dataset_length_stats(cfg, tokenizer):

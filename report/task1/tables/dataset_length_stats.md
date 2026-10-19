@@ -1,0 +1,8 @@
+**Length structure of the preference DATA (Qwen tokenizer, untruncated responses).**
+
+| File | n | Frac. chosen longer | Chosen tok. mean | Rejected tok. mean | Len. diff mean | Len. diff median | corr(score gap, len diff) | % Preferred longer | % Length matched | % Rejected longer | % intermediate | Rule = supplied label |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Standard train | 1500 | 0.563 | 282.115 | 239.665 | 42.450 | 18.000 | 0.041 | 46.467 | 13.800 | 32.400 | 7.333 | n/a |
+| Standard held-out | 300 | 0.533 | 274.403 | 243.757 | 30.647 | 5.000 | 0.180 | 40.667 | 14.000 | 35.333 | 10.000 | n/a |
+| Length-balanced train | 1500 | 0.491 | 156.855 | 151.692 | 5.163 | 0.000 | 0.051 | 33.333 | 33.333 | 33.333 | 0.000 | 1.000 |
+| Length-stratified eval | 246 | 0.484 | 147.455 | 144.760 | 2.695 | -0.500 | -0.002 | 33.333 | 33.333 | 33.333 | 0.000 | 1.000 |

@@ -46,19 +46,41 @@ def shaped_rewards(task_reward, policy_logp, ref_logp, response_mask, beta_kl):
 def ppo_policy_loss(new_logp, old_logp, advantage, mask, eps=0.2):
     """Return PPO clipped policy loss and diagnostics.
 
-    Validate this starter implementation against the clipped surrogate in the assignment manual.
+    L_clip = E_t[ min(rho_t A_t, clip(rho_t, 1-eps, 1+eps) A_t) ];  loss = -L_clip.
+
+    Fix of the released defect: the starter took torch.maximum of the two
+    surrogates. PPO's pessimistic bound needs the MINIMUM; with the maximum,
+    ratios that move in the advantage direction are never clipped (unbounded
+    updates) while ratios moving against it get zero gradient.
     """
     ratio = torch.exp(new_logp - old_logp)
     surr1 = ratio * advantage
     surr2 = ratio.clamp(1.0 - eps, 1.0 + eps) * advantage
 
-    # Starter implementation: students must validate the clipping geometry carefully.
-    objective = torch.maximum(surr1, surr2)
+    objective = torch.minimum(surr1, surr2)
 
     loss = -masked_mean(objective, mask)
-    affected = ((ratio < (1.0 - eps)) | (ratio > (1.0 + eps))).float()
-    clip_fraction = masked_mean(affected, mask)
+    outside = ((ratio < (1.0 - eps)) | (ratio > (1.0 + eps))).float()
+    clip_fraction = masked_mean(outside, mask)
     return loss, ratio.detach(), clip_fraction.detach()
+
+
+def clip_diagnostics(ratio, advantage, mask, eps):
+    """Token fractions for the clipping study (same response mask for both).
+
+    clip_fraction:     rho outside [1-eps, 1+eps] before clipping (manual definition).
+    affected_fraction: clipping actually binds in the min(), i.e. the clipped term is
+                       selected and the token's policy gradient is zero
+                       (A > 0 and rho > 1+eps, or A < 0 and rho < 1-eps).
+    """
+    above, below = ratio > 1.0 + eps, ratio < 1.0 - eps
+    affected = (above & (advantage > 0)) | (below & (advantage < 0))
+    return {
+        "clip_fraction": float(masked_mean((above | below).float(), mask)),
+        "affected_fraction": float(masked_mean(affected.float(), mask)),
+        "clip_fraction_pos_adv": float(masked_mean((above | below).float(), mask * (advantage > 0))),
+        "clip_fraction_neg_adv": float(masked_mean((above | below).float(), mask * (advantage < 0))),
+    }
 
 
 def value_mse_loss(predicted_values, returns, mask):

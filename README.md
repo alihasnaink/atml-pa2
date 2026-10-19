@@ -108,12 +108,28 @@ and report material to `report/task1/` (see `report/README.md`).
 
 ### Task 2 - PPO
 
+Everything at once (2-GPU split; this is what `kaggle/task2_ppo_kaggle.ipynb` runs):
+
 ```bash
-python -m task2_ppo.continue_train --config configs/ppo.yaml --run-name standard
-python -m task2_ppo.evaluate --config configs/ppo.yaml --adapter outputs/task2_ppo/standard --name standard
-python -m task2_ppo.analyze_clipping --config configs/ppo.yaml
-python -m task2_ppo.ablate_kl --config configs/ppo.yaml
+bash task2_ppo/run_all.sh
 ```
+
+Step by step:
+
+```bash
+python -m task2_ppo.validate_ppo     --config configs/ppo.yaml                      # checks the corrected objective/GAE (CPU)
+python -m task2_ppo.continue_train   --config configs/ppo.yaml --run-name standard   # Step 1: 20-update continuation
+python -m task2_ppo.evaluate         --config configs/ppo.yaml --name sft            # SFT reference policy
+python -m task2_ppo.evaluate         --config configs/ppo.yaml --adapter checkpoints/ppo_midpoint_policy --name midpoint
+python -m task2_ppo.evaluate         --config configs/ppo.yaml --adapter outputs/task2_ppo/standard --name standard
+python -m task2_ppo.analyze_clipping --config configs/ppo.yaml                      # Step 2: cached batch + eps forks
+python -m task2_ppo.ablate_kl        --config configs/ppo.yaml                      # Step 3: beta_KL forks
+python -m task2_ppo.make_report      --config configs/ppo.yaml                      # tables/figures -> report/task2/
+```
+
+Fixed defect: `task2_ppo/ppo.py::ppo_policy_loss` took `torch.maximum` of the two surrogates; the clipped
+objective needs `torch.minimum`. Results go to `results/task2_ppo/`, adapters to `outputs/task2_ppo/`,
+report material to `report/task2/`.
 
 ### Task 3 - GRPO
 

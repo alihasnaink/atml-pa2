@@ -32,3 +32,17 @@ max_grad_norm: 1.0
 output: outputs/task2_ppo/standard
 results_dir: results/task2_ppo
 cached_rollouts: cached/ppo_rollout.pt
+
+# --- Student additions (Task 2 implementation) ---
+# Training rollouts use only train-pool prompts whose chat-formatted prompt fits in
+# max_prompt_length (right-truncation would cut the assistant header); the fixed
+# prompt order is a seeded shuffle of that filtered pool, shared by every run/fork.
+# Held-out evaluation uses all rl_prompt_pool_eval prompts, untruncated.
+# Policy/reference log-probs are taken at temperature 1 (the policy's own distribution);
+# rollouts are sampled with the base `generation` settings. Dropout is disabled during PPO
+# so the first PPO epoch starts at ratio = 1 exactly.
+value_dtype: float32          # critic trained in fp32 (fp16 Adam states are unstable on T4)
+normalize_advantages: true    # whiten advantages over the valid tokens of the update batch
+cache_update_steps: 4         # cached-batch study: full-batch PPO steps per epsilon after the step-0 measurement
+eval_generation_batch_size: 16
+eval_score_batch_size: 2

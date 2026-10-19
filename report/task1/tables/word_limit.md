@@ -1,0 +1,10 @@
+**Word-limit compliance on the 10 common prompts.**
+
+| Condition | Samples | Compliance | Words mean | Words / limit | Tokens mean | Trunc. rate | RM score |
+|---|---|---|---|---|---|---|---|
+| SFT (no DPO) | 40 | 0.450 | 39.975 | 1.101 | 47.200 | 0.000 | 3.468 |
+| Standard DPO | 40 | 0.475 | 40.625 | 1.122 | 48.100 | 0.000 | 3.485 |
+| Short fork beta=0.03 | 40 | 0.500 | 39.200 | 1.079 | 46.275 | 0.000 | 3.461 |
+| Short fork beta=0.10 | 40 | 0.500 | 39.175 | 1.079 | 46.275 | 0.000 | 3.475 |
+| Short fork beta=0.30 | 40 | 0.500 | 39.000 | 1.075 | 45.950 | 0.000 | 3.438 |
+| Length-balanced DPO | 40 | 0.475 | 39.325 | 1.086 | 46.150 | 0.000 | 3.524 |

@@ -1,0 +1,35 @@
+{
+  "beta": 0.1,
+  "all_pass": true,
+  "checks": {
+    "matches_manual_equation": {
+      "fixed_loss": 1.3905340845605145,
+      "manual_loss": 1.3905340845605147,
+      "released_buggy_loss": 1.3553485365530233,
+      "pass": true
+    },
+    "policy_equals_reference_gives_log2": {
+      "fixed_loss": 0.6931471805599453,
+      "log2": 0.6931471805599453,
+      "released_buggy_loss": 1.9124422022417327,
+      "fixed_accuracy": 0.0,
+      "pass": true
+    },
+    "invariant_to_shared_shift": {
+      "fixed_delta": 0.0,
+      "released_buggy_delta": -0.5662183714609704,
+      "pass": true
+    },
+    "gradient_signs": {
+      "all_dL_dchosen_negative": true,
+      "all_dL_drejected_positive": true,
+      "pass": true
+    },
+    "accuracy_definition": {
+      "diag": 0.5625,
+      "manual": 0.5625,
+      "pass": true
+    }
+  },
+  "defect": "starter computed beta*(policy_margin + ref_margin); fixed to beta*(policy_margin - ref_margin)"
+}

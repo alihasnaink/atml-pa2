@@ -57,3 +57,11 @@ def safe_corr(a, b):
     if len(a) < 2 or np.std(a) == 0 or np.std(b) == 0:
         return float("nan")
     return float(np.corrcoef(a, b)[0, 1])
+
+
+def paired_bootstrap(a, b, n_boot=2000, seed=0):
+    """Mean of (b - a) over paired items with a 95% bootstrap CI."""
+    d = np.asarray(b, dtype=float) - np.asarray(a, dtype=float)
+    rng = np.random.default_rng(seed)
+    boots = d[rng.integers(0, len(d), size=(n_boot, len(d)))].mean(1)
+    return {"mean_diff": float(d.mean()), "ci95": [float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))], "n": len(d)}

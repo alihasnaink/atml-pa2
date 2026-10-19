@@ -1,0 +1,264 @@
+[gpu0] [standard] beta=0.1 examples=1443 dropped=57 micro_batches/epoch=722 accum=8
+[gpu0] [standard] step 1 seen 16 loss 0.6931 acc 0.000 margin 0.000 gnorm 1.855 t 0.2m
+[gpu0] [standard] step 2 seen 32 loss 0.6947 acc 0.438 margin -0.030 gnorm 2.301 t 0.5m
+[gpu0] [standard] step 3 seen 48 loss 0.6916 acc 0.562 margin 0.032 gnorm 1.943 t 0.7m
+[gpu0] [standard] step 4 seen 64 loss 0.6940 acc 0.375 margin -0.016 gnorm 1.867 t 0.9m
+[gpu0] [standard] step 5 seen 80 loss 0.6945 acc 0.500 margin -0.027 gnorm 1.766 t 1.1m
+[gpu0] [standard] step 6 seen 96 loss 0.6935 acc 0.438 margin -0.007 gnorm 2.050 t 1.4m
+[gpu0] [standard] step 7 seen 112 loss 0.6918 acc 0.500 margin 0.028 gnorm 1.806 t 1.6m
+[gpu0] [standard] step 8 seen 128 loss 0.6907 acc 0.750 margin 0.050 gnorm 2.205 t 2.0m
+[gpu0] [standard] step 9 seen 144 loss 0.6920 acc 0.625 margin 0.023 gnorm 2.166 t 2.2m
+[gpu0] [standard] step 10 seen 160 loss 0.6945 acc 0.438 margin -0.027 gnorm 2.250 t 2.5m
+[gpu0] [standard] step 11 seen 176 loss 0.6901 acc 0.750 margin 0.061 gnorm 2.185 t 2.7m
+[gpu0] [standard] step 12 seen 192 loss 0.6946 acc 0.375 margin -0.029 gnorm 1.974 t 3.0m
+[gpu0] [standard] step 13 seen 208 loss 0.6908 acc 0.625 margin 0.048 gnorm 2.147 t 3.3m
+[gpu0] [standard] step 14 seen 224 loss 0.6941 acc 0.500 margin -0.019 gnorm 1.968 t 3.5m
+[gpu0] [standard] step 15 seen 240 loss 0.6937 acc 0.500 margin -0.011 gnorm 2.008 t 3.8m
+[gpu0] [standard] step 16 seen 256 loss 0.6891 acc 0.562 margin 0.083 gnorm 1.674 t 4.0m
+[gpu0] [standard] step 17 seen 272 loss 0.6937 acc 0.375 margin -0.009 gnorm 2.136 t 4.3m
+[gpu0] [standard] step 18 seen 288 loss 0.6910 acc 0.625 margin 0.044 gnorm 2.067 t 4.5m
+[gpu0] [standard] step 19 seen 304 loss 0.6896 acc 0.812 margin 0.072 gnorm 1.999 t 4.7m
+[gpu0] [standard] step 20 seen 320 loss 0.6898 acc 0.688 margin 0.068 gnorm 2.136 t 5.0m
+[gpu0] [standard] step 21 seen 336 loss 0.6943 acc 0.438 margin -0.023 gnorm 2.431 t 5.2m
+[gpu0] [standard] step 22 seen 352 loss 0.6870 acc 0.750 margin 0.124 gnorm 2.253 t 5.5m
+[gpu0] [standard] step 23 seen 368 loss 0.6935 acc 0.750 margin -0.006 gnorm 2.068 t 5.7m
+[gpu0] [standard] step 24 seen 384 loss 0.6896 acc 0.688 margin 0.072 gnorm 1.992 t 6.0m
+[gpu0] [standard] step 25 seen 400 loss 0.6865 acc 0.500 margin 0.137 gnorm 2.198 t 6.2m
+[gpu0] [standard] step 26 seen 416 loss 0.6864 acc 0.750 margin 0.137 gnorm 1.919 t 6.5m
+[gpu0] [standard] step 27 seen 432 loss 0.6858 acc 0.625 margin 0.150 gnorm 2.396 t 6.7m
+[gpu0] [standard] step 28 seen 448 loss 0.6888 acc 0.750 margin 0.088 gnorm 1.833 t 7.0m
+[gpu0] [standard] step 29 seen 464 loss 0.6854 acc 0.625 margin 0.159 gnorm 2.081 t 7.3m
+[gpu0] [standard] step 30 seen 480 loss 0.6889 acc 0.750 margin 0.087 gnorm 1.873 t 7.5m
+[gpu0] [standard] step 31 seen 496 loss 0.6934 acc 0.438 margin -0.002 gnorm 1.960 t 7.7m
+[gpu0] [standard] step 32 seen 512 loss 0.6879 acc 0.625 margin 0.110 gnorm 2.187 t 8.0m
+[gpu0] [standard] step 33 seen 528 loss 0.6832 acc 0.688 margin 0.204 gnorm 2.182 t 8.3m
+[gpu0] [standard] step 34 seen 544 loss 0.6816 acc 0.750 margin 0.236 gnorm 2.106 t 8.5m
+[gpu0] [standard] step 35 seen 560 loss 0.6849 acc 0.688 margin 0.169 gnorm 2.301 t 8.8m
+[gpu0] [standard] step 36 seen 576 loss 0.6960 acc 0.500 margin -0.055 gnorm 2.088 t 9.0m
+[gpu0] [standard] step 37 seen 592 loss 0.6888 acc 0.500 margin 0.091 gnorm 1.760 t 9.2m
+[gpu0] [standard] step 38 seen 608 loss 0.7016 acc 0.188 margin -0.160 gnorm 2.114 t 9.5m
+[gpu0] [standard] step 39 seen 624 loss 0.6903 acc 0.562 margin 0.063 gnorm 2.469 t 9.8m
+[gpu0] [standard] step 40 seen 640 loss 0.6914 acc 0.562 margin 0.041 gnorm 1.550 t 10.0m
+[gpu0] [standard] step 41 seen 656 loss 0.6784 acc 0.625 margin 0.304 gnorm 2.089 t 10.3m
+[gpu0] [standard] step 42 seen 672 loss 0.6879 acc 0.750 margin 0.108 gnorm 1.749 t 10.5m
+[gpu0] [standard] step 43 seen 688 loss 0.6864 acc 0.500 margin 0.145 gnorm 2.054 t 10.7m
+[gpu0] [standard] step 44 seen 704 loss 0.6793 acc 0.750 margin 0.292 gnorm 2.168 t 11.0m
+[gpu0] [standard] step 45 seen 720 loss 0.6821 acc 0.625 margin 0.233 gnorm 2.088 t 11.2m
+[gpu0] [standard] step 46 seen 736 loss 0.6863 acc 0.625 margin 0.148 gnorm 1.998 t 11.5m
+[gpu0] [standard] step 47 seen 752 loss 0.6778 acc 0.688 margin 0.318 gnorm 2.120 t 11.8m
+[gpu0] [standard] step 48 seen 768 loss 0.6862 acc 0.562 margin 0.155 gnorm 2.314 t 12.0m
+[gpu0] [standard] step 49 seen 784 loss 0.6831 acc 0.750 margin 0.209 gnorm 2.325 t 12.3m
+[gpu0] [standard] step 50 seen 800 loss 0.6930 acc 0.500 margin 0.014 gnorm 2.018 t 12.6m
+[gpu0] [standard] step 51 seen 816 loss 0.6997 acc 0.375 margin -0.126 gnorm 2.224 t 12.9m
+[gpu0] [standard] step 52 seen 832 loss 0.6943 acc 0.375 margin -0.011 gnorm 3.370 t 13.1m
+[gpu0] [standard] step 53 seen 848 loss 0.6654 acc 0.750 margin 0.580 gnorm 2.334 t 13.3m
+[gpu0] [standard] step 54 seen 864 loss 0.7048 acc 0.438 margin -0.218 gnorm 2.110 t 13.6m
+[gpu0] [standard] step 55 seen 880 loss 0.6903 acc 0.625 margin 0.072 gnorm 2.144 t 13.8m
+[gpu0] [standard] step 56 seen 896 loss 0.6748 acc 0.625 margin 0.388 gnorm 1.991 t 14.1m
+[gpu0] [standard] step 57 seen 912 loss 0.6852 acc 0.625 margin 0.176 gnorm 2.056 t 14.3m
+[gpu0] [standard] step 58 seen 928 loss 0.6883 acc 0.688 margin 0.109 gnorm 1.856 t 14.5m
+[gpu0] [standard] step 59 seen 944 loss 0.6735 acc 0.688 margin 0.417 gnorm 2.203 t 14.8m
+[gpu0] [standard] step 60 seen 960 loss 0.6884 acc 0.750 margin 0.113 gnorm 1.896 t 15.0m
+[gpu0] [standard] step 61 seen 976 loss 0.6720 acc 0.750 margin 0.445 gnorm 1.744 t 15.2m
+[gpu0] [standard] step 62 seen 992 loss 0.6775 acc 0.625 margin 0.326 gnorm 2.150 t 15.4m
+[gpu0] [standard] step 63 seen 1008 loss 0.6766 acc 0.625 margin 0.361 gnorm 2.134 t 15.7m
+[gpu0] [standard] step 64 seen 1024 loss 0.6959 acc 0.625 margin -0.014 gnorm 1.993 t 15.9m
+[gpu0] [standard] step 65 seen 1040 loss 0.6891 acc 0.500 margin 0.100 gnorm 1.976 t 16.1m
+[gpu0] [standard] step 66 seen 1056 loss 0.6731 acc 0.688 margin 0.467 gnorm 2.000 t 16.4m
+[gpu0] [standard] step 67 seen 1072 loss 0.6834 acc 0.562 margin 0.226 gnorm 2.360 t 16.6m
+[gpu0] [standard] step 68 seen 1088 loss 0.6822 acc 0.625 margin 0.254 gnorm 2.078 t 16.9m
+[gpu0] [standard] step 69 seen 1104 loss 0.6727 acc 0.750 margin 0.452 gnorm 1.942 t 17.1m
+[gpu0] [standard] step 70 seen 1120 loss 0.6793 acc 0.688 margin 0.306 gnorm 1.990 t 17.4m
+[gpu0] [standard] step 71 seen 1136 loss 0.6759 acc 0.750 margin 0.399 gnorm 1.942 t 17.6m
+[gpu0] [standard] step 72 seen 1152 loss 0.6711 acc 0.688 margin 0.458 gnorm 1.932 t 17.9m
+[gpu0] [standard] step 73 seen 1168 loss 0.6982 acc 0.688 margin -0.081 gnorm 2.155 t 18.1m
+[gpu0] [standard] step 74 seen 1184 loss 0.6582 acc 0.750 margin 0.759 gnorm 2.273 t 18.3m
+[gpu0] [standard] step 75 seen 1200 loss 0.6700 acc 0.688 margin 0.501 gnorm 2.087 t 18.6m
+[gpu0] [standard] step 76 seen 1216 loss 0.6761 acc 0.625 margin 0.400 gnorm 2.119 t 18.9m
+[gpu0] [standard] step 77 seen 1232 loss 0.6838 acc 0.750 margin 0.199 gnorm 1.874 t 19.1m
+[gpu0] [standard] step 78 seen 1248 loss 0.6903 acc 0.625 margin 0.066 gnorm 1.981 t 19.3m
+[gpu0] [standard] step 79 seen 1264 loss 0.6966 acc 0.500 margin -0.023 gnorm 2.121 t 19.5m
+[gpu0] [standard] step 80 seen 1280 loss 0.6857 acc 0.625 margin 0.177 gnorm 2.156 t 19.8m
+[gpu0] [standard] step 81 seen 1296 loss 0.6793 acc 0.562 margin 0.299 gnorm 2.021 t 20.0m
+[gpu0] [standard] step 82 seen 1312 loss 0.6628 acc 0.750 margin 0.679 gnorm 2.428 t 20.3m
+[gpu0] [standard] step 83 seen 1328 loss 0.6693 acc 0.688 margin 0.561 gnorm 2.106 t 20.6m
+[gpu0] [standard] step 84 seen 1344 loss 0.6835 acc 0.562 margin 0.222 gnorm 2.059 t 20.8m
+[gpu0] [standard] step 85 seen 1360 loss 0.6806 acc 0.562 margin 0.303 gnorm 2.356 t 21.1m
+[gpu0] [standard] step 86 seen 1376 loss 0.6720 acc 0.750 margin 0.449 gnorm 1.899 t 21.3m
+[gpu0] [standard] step 87 seen 1392 loss 0.6318 acc 0.625 margin 1.334 gnorm 2.473 t 21.6m
+[gpu0] [standard] step 88 seen 1408 loss 0.6741 acc 0.625 margin 0.432 gnorm 2.055 t 21.8m
+[gpu0] [standard] step 89 seen 1424 loss 0.6766 acc 0.688 margin 0.362 gnorm 2.010 t 22.1m
+[gpu0] [standard] step 90 seen 1440 loss 0.7295 acc 0.375 margin -0.651 gnorm 2.825 t 22.4m
+[gpu0] [standard] step 91 seen 1443 loss 0.8213 acc 0.000 margin -2.361 gnorm 8.850 t 22.4m
+[gpu0] [standard] saved adapter to /kaggle/working/repo/outputs/task1_dpo/standard (22.4 min)
+[gpu0] [eval standard] adapter=outputs/task1_dpo/standard beta=0.1 heldout=289 stratified=235
+[gpu0] [eval standard] pair metrics done
+[gpu0]   generated 16/289
+[gpu0]   generated 32/289
+[gpu0]   generated 48/289
+[gpu0]   generated 64/289
+[gpu0]   generated 80/289
+[gpu0]   generated 96/289
+[gpu0]   generated 112/289
+[gpu0]   generated 128/289
+[gpu0]   generated 144/289
+[gpu0]   generated 160/289
+[gpu0]   generated 176/289
+[gpu0]   generated 192/289
+[gpu0]   generated 208/289
+[gpu0]   generated 224/289
+[gpu0]   generated 240/289
+[gpu0]   generated 256/289
+[gpu0]   generated 272/289
+[gpu0]   generated 288/289
+[gpu0]   generated 289/289
+[gpu0]   generated 16/40
+[gpu0]   generated 32/40
+[gpu0]   generated 40/40
+[gpu0] [eval standard] acc=0.633 KL=0.0002 reward=1.390 len=156.5 wl=0.47 (11.7 min)
+[gpu0] [eval sft] adapter=None beta=0.1 heldout=289 stratified=235
+[gpu0] [eval sft] pair metrics done
+[gpu0]   generated 16/289
+[gpu0]   generated 32/289
+[gpu0]   generated 48/289
+[gpu0]   generated 64/289
+[gpu0]   generated 80/289
+[gpu0]   generated 96/289
+[gpu0]   generated 112/289
+[gpu0]   generated 128/289
+[gpu0]   generated 144/289
+[gpu0]   generated 160/289
+[gpu0]   generated 176/289
+[gpu0]   generated 192/289
+[gpu0]   generated 208/289
+[gpu0]   generated 224/289
+[gpu0]   generated 240/289
+[gpu0]   generated 256/289
+[gpu0]   generated 272/289
+[gpu0]   generated 288/289
+[gpu0]   generated 289/289
+[gpu0]   generated 16/40
+[gpu0]   generated 32/40
+[gpu0]   generated 40/40
+[gpu0] [eval sft] acc=0.000 KL=0.0000 reward=1.278 len=155.2 wl=0.45 (8.4 min)
+[gpu0] Length-balanced train rows: 1500
+[gpu0] Length-stratified eval rows: 246
+[gpu0] [length_balanced] beta=0.1 examples=1432 dropped=68 micro_batches/epoch=716 accum=8
+[gpu0] [length_balanced] step 1 seen 16 loss 0.6931 acc 0.000 margin 0.000 gnorm 1.865 t 0.2m
+[gpu0] [length_balanced] step 2 seen 32 loss 0.6949 acc 0.375 margin -0.035 gnorm 1.937 t 0.3m
+[gpu0] [length_balanced] step 3 seen 48 loss 0.6919 acc 0.562 margin 0.026 gnorm 3.068 t 0.6m
+[gpu0] [length_balanced] step 4 seen 64 loss 0.6927 acc 0.625 margin 0.009 gnorm 1.628 t 0.7m
+[gpu0] [length_balanced] step 5 seen 80 loss 0.6942 acc 0.438 margin -0.022 gnorm 2.087 t 0.9m
+[gpu0] [length_balanced] step 6 seen 96 loss 0.6951 acc 0.438 margin -0.039 gnorm 1.701 t 1.1m
+[gpu0] [length_balanced] step 7 seen 112 loss 0.6896 acc 0.562 margin 0.072 gnorm 2.016 t 1.2m
+[gpu0] [length_balanced] step 8 seen 128 loss 0.6895 acc 0.562 margin 0.075 gnorm 1.663 t 1.5m
+[gpu0] [length_balanced] step 9 seen 144 loss 0.6898 acc 0.500 margin 0.070 gnorm 1.655 t 1.7m
+[gpu0] [length_balanced] step 10 seen 160 loss 0.6930 acc 0.625 margin 0.005 gnorm 2.166 t 1.9m
+[gpu0] [length_balanced] step 11 seen 176 loss 0.6913 acc 0.562 margin 0.039 gnorm 1.647 t 2.0m
+[gpu0] [length_balanced] step 12 seen 192 loss 0.6869 acc 0.688 margin 0.126 gnorm 1.673 t 2.2m
+[gpu0] [length_balanced] step 13 seen 208 loss 0.6918 acc 0.625 margin 0.030 gnorm 1.796 t 2.4m
+[gpu0] [length_balanced] step 14 seen 224 loss 0.6889 acc 0.375 margin 0.093 gnorm 1.906 t 2.6m
+[gpu0] [length_balanced] step 15 seen 240 loss 0.6879 acc 0.625 margin 0.111 gnorm 2.073 t 2.8m
+[gpu0] [length_balanced] step 16 seen 256 loss 0.6780 acc 0.750 margin 0.310 gnorm 1.913 t 2.9m
+[gpu0] [length_balanced] step 17 seen 272 loss 0.6917 acc 0.438 margin 0.033 gnorm 1.920 t 3.1m
+[gpu0] [length_balanced] step 18 seen 288 loss 0.6933 acc 0.500 margin 0.001 gnorm 1.673 t 3.3m
+[gpu0] [length_balanced] step 19 seen 304 loss 0.6982 acc 0.375 margin -0.097 gnorm 1.995 t 3.5m
+[gpu0] [length_balanced] step 20 seen 320 loss 0.6793 acc 0.688 margin 0.282 gnorm 1.979 t 3.6m
+[gpu0] [length_balanced] step 21 seen 336 loss 0.6830 acc 0.625 margin 0.209 gnorm 1.887 t 3.8m
+[gpu0] [length_balanced] step 22 seen 352 loss 0.6898 acc 0.438 margin 0.075 gnorm 1.956 t 4.0m
+[gpu0] [length_balanced] step 23 seen 368 loss 0.6869 acc 0.625 margin 0.131 gnorm 1.699 t 4.2m
+[gpu0] [length_balanced] step 24 seen 384 loss 0.6797 acc 0.688 margin 0.276 gnorm 1.550 t 4.4m
+[gpu0] [length_balanced] step 25 seen 400 loss 0.6865 acc 0.625 margin 0.145 gnorm 2.242 t 4.5m
+[gpu0] [length_balanced] step 26 seen 416 loss 0.7082 acc 0.438 margin -0.291 gnorm 1.878 t 4.7m
+[gpu0] [length_balanced] step 27 seen 432 loss 0.6780 acc 0.625 margin 0.312 gnorm 1.703 t 4.9m
+[gpu0] [length_balanced] step 28 seen 448 loss 0.6792 acc 0.688 margin 0.289 gnorm 1.648 t 5.1m
+[gpu0] [length_balanced] step 29 seen 464 loss 0.6891 acc 0.750 margin 0.087 gnorm 1.527 t 5.2m
+[gpu0] [length_balanced] step 30 seen 480 loss 0.6903 acc 0.438 margin 0.061 gnorm 1.646 t 5.4m
+[gpu0] [length_balanced] step 31 seen 496 loss 0.6711 acc 0.562 margin 0.460 gnorm 1.964 t 5.7m
+[gpu0] [length_balanced] step 32 seen 512 loss 0.6860 acc 0.500 margin 0.162 gnorm 1.820 t 5.8m
+[gpu0] [length_balanced] step 33 seen 528 loss 0.6747 acc 0.688 margin 0.387 gnorm 1.930 t 6.0m
+[gpu0] [length_balanced] step 34 seen 544 loss 0.6970 acc 0.625 margin -0.052 gnorm 1.903 t 6.2m
+[gpu0] [length_balanced] step 35 seen 560 loss 0.6908 acc 0.562 margin 0.069 gnorm 2.120 t 6.4m
+[gpu0] [length_balanced] step 36 seen 576 loss 0.6747 acc 0.562 margin 0.387 gnorm 1.947 t 6.5m
+[gpu0] [length_balanced] step 37 seen 592 loss 0.6900 acc 0.562 margin 0.077 gnorm 1.862 t 6.7m
+[gpu0] [length_balanced] step 38 seen 608 loss 0.6875 acc 0.500 margin 0.129 gnorm 1.745 t 6.9m
+[gpu0] [length_balanced] step 39 seen 624 loss 0.6967 acc 0.500 margin -0.050 gnorm 1.918 t 7.1m
+[gpu0] [length_balanced] step 40 seen 640 loss 0.6738 acc 0.750 margin 0.451 gnorm 2.030 t 7.2m
+[gpu0] [length_balanced] step 41 seen 656 loss 0.6656 acc 0.812 margin 0.578 gnorm 1.829 t 7.4m
+[gpu0] [length_balanced] step 42 seen 672 loss 0.6992 acc 0.625 margin -0.104 gnorm 1.911 t 7.6m
+[gpu0] [length_balanced] step 43 seen 688 loss 0.6776 acc 0.688 margin 0.353 gnorm 3.392 t 7.8m
+[gpu0] [length_balanced] step 44 seen 704 loss 0.6876 acc 0.625 margin 0.143 gnorm 1.908 t 8.0m
+[gpu0] [length_balanced] step 45 seen 720 loss 0.6733 acc 0.750 margin 0.416 gnorm 2.400 t 8.2m
+[gpu0] [length_balanced] step 46 seen 736 loss 0.6706 acc 0.625 margin 0.471 gnorm 2.049 t 8.4m
+[gpu0] [length_balanced] step 47 seen 752 loss 0.6866 acc 0.688 margin 0.164 gnorm 1.771 t 8.5m
+[gpu0] [length_balanced] step 48 seen 768 loss 0.7000 acc 0.500 margin -0.116 gnorm 1.462 t 8.7m
+[gpu0] [length_balanced] step 49 seen 784 loss 0.6860 acc 0.562 margin 0.161 gnorm 1.874 t 8.9m
+[gpu0] [length_balanced] step 50 seen 800 loss 0.6883 acc 0.438 margin 0.157 gnorm 1.781 t 9.1m
+[gpu0] [length_balanced] step 51 seen 816 loss 0.7037 acc 0.562 margin -0.192 gnorm 1.880 t 9.3m
+[gpu0] [length_balanced] step 52 seen 832 loss 0.6829 acc 0.750 margin 0.235 gnorm 1.667 t 9.5m
+[gpu0] [length_balanced] step 53 seen 848 loss 0.6849 acc 0.625 margin 0.211 gnorm 1.792 t 9.7m
+[gpu0] [length_balanced] step 54 seen 864 loss 0.6545 acc 0.625 margin 0.827 gnorm 1.765 t 9.8m
+[gpu0] [length_balanced] step 55 seen 880 loss 0.7040 acc 0.625 margin -0.170 gnorm 2.143 t 10.0m
+[gpu0] [length_balanced] step 56 seen 896 loss 0.6649 acc 0.688 margin 0.611 gnorm 2.056 t 10.2m
+[gpu0] [length_balanced] step 57 seen 912 loss 0.6745 acc 0.750 margin 0.394 gnorm 1.935 t 10.4m
+[gpu0] [length_balanced] step 58 seen 928 loss 0.6622 acc 0.750 margin 0.665 gnorm 1.963 t 10.7m
+[gpu0] [length_balanced] step 59 seen 944 loss 0.6566 acc 0.688 margin 0.800 gnorm 2.628 t 10.9m
+[gpu0] [length_balanced] step 60 seen 960 loss 0.6835 acc 0.625 margin 0.221 gnorm 1.951 t 11.1m
+[gpu0] [length_balanced] step 61 seen 976 loss 0.6633 acc 0.562 margin 0.658 gnorm 2.092 t 11.3m
+[gpu0] [length_balanced] step 62 seen 992 loss 0.6851 acc 0.438 margin 0.256 gnorm 2.303 t 11.5m
+[gpu0] [length_balanced] step 63 seen 1008 loss 0.6988 acc 0.500 margin -0.074 gnorm 1.842 t 11.7m
+[gpu0] [length_balanced] step 64 seen 1024 loss 0.6927 acc 0.562 margin 0.070 gnorm 1.734 t 11.9m
+[gpu0] [length_balanced] step 65 seen 1040 loss 0.6823 acc 0.562 margin 0.266 gnorm 1.596 t 12.1m
+[gpu0] [length_balanced] step 66 seen 1056 loss 0.6758 acc 0.625 margin 0.383 gnorm 1.886 t 12.3m
+[gpu0] [length_balanced] step 67 seen 1072 loss 0.6890 acc 0.500 margin 0.134 gnorm 1.998 t 12.5m
+[gpu0] [length_balanced] step 68 seen 1088 loss 0.6777 acc 0.562 margin 0.337 gnorm 1.738 t 12.7m
+[gpu0] [length_balanced] step 69 seen 1104 loss 0.6983 acc 0.438 margin -0.056 gnorm 1.689 t 12.9m
+[gpu0] [length_balanced] step 70 seen 1120 loss 0.6724 acc 0.625 margin 0.478 gnorm 1.801 t 13.0m
+[gpu0] [length_balanced] step 71 seen 1136 loss 0.6876 acc 0.750 margin 0.157 gnorm 1.896 t 13.2m
+[gpu0] [length_balanced] step 72 seen 1152 loss 0.6818 acc 0.562 margin 0.269 gnorm 1.995 t 13.4m
+[gpu0] [length_balanced] step 73 seen 1168 loss 0.6691 acc 0.500 margin 0.564 gnorm 1.882 t 13.6m
+[gpu0] [length_balanced] step 74 seen 1184 loss 0.7062 acc 0.500 margin -0.197 gnorm 2.121 t 13.8m
+[gpu0] [length_balanced] step 75 seen 1200 loss 0.6731 acc 0.625 margin 0.449 gnorm 1.760 t 14.0m
+[gpu0] [length_balanced] step 76 seen 1216 loss 0.6841 acc 0.562 margin 0.295 gnorm 2.200 t 14.2m
+[gpu0] [length_balanced] step 77 seen 1232 loss 0.6815 acc 0.625 margin 0.338 gnorm 1.937 t 14.4m
+[gpu0] [length_balanced] step 78 seen 1248 loss 0.6853 acc 0.438 margin 0.252 gnorm 2.187 t 14.6m
+[gpu0] [length_balanced] step 79 seen 1264 loss 0.6968 acc 0.500 margin -0.043 gnorm 1.976 t 14.8m
+[gpu0] [length_balanced] step 80 seen 1280 loss 0.6816 acc 0.688 margin 0.352 gnorm 2.165 t 15.0m
+[gpu0] [length_balanced] step 81 seen 1296 loss 0.7135 acc 0.438 margin -0.302 gnorm 2.051 t 15.2m
+[gpu0] [length_balanced] step 82 seen 1312 loss 0.6845 acc 0.500 margin 0.309 gnorm 1.848 t 15.4m
+[gpu0] [length_balanced] step 83 seen 1328 loss 0.6685 acc 0.562 margin 0.582 gnorm 1.881 t 15.5m
+[gpu0] [length_balanced] step 84 seen 1344 loss 0.6814 acc 0.625 margin 0.315 gnorm 1.916 t 15.8m
+[gpu0] [length_balanced] step 85 seen 1360 loss 0.6796 acc 0.562 margin 0.313 gnorm 2.072 t 15.9m
+[gpu0] [length_balanced] step 86 seen 1376 loss 0.6560 acc 0.750 margin 0.791 gnorm 2.250 t 16.1m
+[gpu0] [length_balanced] step 87 seen 1392 loss 0.6669 acc 0.562 margin 0.560 gnorm 1.876 t 16.3m
+[gpu0] [length_balanced] step 88 seen 1408 loss 0.6616 acc 0.625 margin 0.737 gnorm 1.942 t 16.5m
+[gpu0] [length_balanced] step 89 seen 1424 loss 0.6650 acc 0.688 margin 0.664 gnorm 1.900 t 16.6m
+[gpu0] [length_balanced] step 90 seen 1432 loss 0.6226 acc 0.875 margin 1.517 gnorm 2.827 t 16.7m
+[gpu0] [length_balanced] saved adapter to /kaggle/working/repo/outputs/task1_dpo/length_balanced (16.7 min)
+[gpu0] [eval length_balanced] adapter=outputs/task1_dpo/length_balanced beta=0.1 heldout=289 stratified=235
+[gpu0] [eval length_balanced] pair metrics done
+[gpu0]   generated 16/289
+[gpu0]   generated 32/289
+[gpu0]   generated 48/289
+[gpu0]   generated 64/289
+[gpu0]   generated 80/289
+[gpu0]   generated 96/289
+[gpu0]   generated 112/289
+[gpu0]   generated 128/289
+[gpu0]   generated 144/289
+[gpu0]   generated 160/289
+[gpu0]   generated 176/289
+[gpu0]   generated 192/289
+[gpu0]   generated 208/289
+[gpu0]   generated 224/289
+[gpu0]   generated 240/289
+[gpu0]   generated 256/289
+[gpu0]   generated 272/289
+[gpu0]   generated 288/289
+[gpu0]   generated 289/289
+[gpu0]   generated 16/40
+[gpu0]   generated 32/40
+[gpu0]   generated 40/40
+[gpu0] [eval length_balanced] acc=0.626 KL=0.0024 reward=1.436 len=156.4 wl=0.47 (11.9 min)
+[gpu0] Saved dataset length statistics
+[gpu0] Saved length analysis to /kaggle/working/repo/results/task1_dpo/length_analysis.json
