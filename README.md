@@ -83,12 +83,28 @@ The PPO value checkpoint is intentionally released as the exact staff midpoint s
 
 ### Task 1 - DPO
 
+Everything at once (splits the work across 2 GPUs when available; this is what the Kaggle notebook
+`kaggle/task1_dpo_kaggle.ipynb` runs):
+
 ```bash
-python -m task1_dpo.train --config configs/dpo.yaml --run-name standard
-python -m task1_dpo.evaluate --config configs/dpo.yaml --adapter outputs/task1_dpo/standard --name standard
-python -m task1_dpo.ablate_beta --config configs/dpo.yaml
-python -m task1_dpo.analyze_length --config configs/dpo.yaml
+bash task1_dpo/run_all.sh
 ```
+
+Step by step:
+
+```bash
+python -m task1_dpo.validate_dpo   --config configs/dpo.yaml                     # checks the corrected objective (CPU)
+python -m task1_dpo.train          --config configs/dpo.yaml --run-name standard  # Step 1: 1-epoch standard DPO
+python -m task1_dpo.evaluate       --config configs/dpo.yaml --adapter outputs/task1_dpo/standard --name standard
+python -m task1_dpo.evaluate       --config configs/dpo.yaml --name sft           # SFT reference (no adapter)
+python -m task1_dpo.ablate_beta    --config configs/dpo.yaml                      # Step 2: beta in {0.03, 0.10, 0.30}
+python -m task1_dpo.analyze_length --config configs/dpo.yaml                      # Step 3: length-balanced DPO + analysis
+python -m task1_dpo.make_report    --config configs/dpo.yaml                      # tables/figures -> report/task1/
+```
+
+Fixed defect: `task1_dpo/dpo.py` computed `beta * (policy_margin + ref_margin)`; the DPO objective needs
+`beta * (policy_margin - ref_margin)`. Results go to `results/task1_dpo/`, adapters to `outputs/task1_dpo/`,
+and report material to `report/task1/` (see `report/README.md`).
 
 ### Task 2 - PPO
 
