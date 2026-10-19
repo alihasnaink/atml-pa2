@@ -13,3 +13,16 @@ max_grad_norm: 1.0
 standard_output: outputs/task1_dpo/standard
 length_output: outputs/task1_dpo/length_balanced
 results_dir: results/task1_dpo
+
+# --- Student additions (Task 1 implementation) ---
+# Pairs whose chat-formatted prompt leaves fewer than this many of the
+# max_sequence_length tokens for the response are dropped (same rule for every
+# train/eval file; dropped prompt IDs are saved in results/).
+min_response_tokens: 64
+# Evaluation: identical prompts, decoding settings (base `generation` block:
+# temperature 0.7, top_p 0.9) and seed for every condition.
+eval_pair_batch_size: 4
+eval_generation_batch_size: 16
+eval_score_batch_size: 4
+word_limit_samples: 4
+reward_max_length: 2048
