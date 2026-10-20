@@ -181,3 +181,51 @@ use the train/held-out length columns and the held-out boxplot. For quality, use
 Use `tables/signal_and_sample_efficiency.*` (uninformative groups, masked truncated completions, zero-advantage completions,
 tokens in loss / generated, group-std range, grad-norm CV, corr(group std, grad norm)), the reward-dot and masked-count panels in
 `figures/standard_continuation_diagnostics.*`, and `qualitative/training_group_examples.md`.
+
+## Task 4: Safety calibration (`report/task4/`)
+
+Produced by `python -m task4_safety.evaluate_safety --config configs/feedback.yaml`. Run it after the Kaggle GPU stage,
+and run it again after labeling the manual audit sheet; the agreement tables and figures appear only once labels exist.
+Raw results are in `results/task4_safety/`:
+- `generated_<policy>.jsonl`: response, tokens, truncation and reward-model score.
+- `judged_<policy>.jsonl`: plus judge label, confidence and rationale tag.
+- `manual_audit_{ids,sheet,key}.csv` and `manual_audit_guide.md`
+- `safety_metrics.json`
+
+### Setup facts to state in the report
+
+| Item | Value | Source |
+|---|---|---|
+| Policies (fixed by the manual) | SFT = untouched Qwen2.5-1.5B-Instruct; DPO = Task 1 Step 1 standard; PPO = Task 2 Step 1 standard (20 updates); GRPO = Task 3 Step 1 standard (20 updates). No ablation checkpoints | `configs/feedback.yaml` -> `policies` |
+| Prompts | Fixed XSTest CSV: 450 prompts = 250 SAFE (10 types x 25) + 200 UNSAFE (8 contrast types x 25), fixed order | `data/xstest_safety_prompts.csv` |
+| Decoding | Greedy (deterministic), one response per policy and prompt, max 256 new tokens, the same for all policies | `generate_responses.py`, `safety_max_new_tokens` |
+| AI judge | Fixed Qwen2.5-3B-Instruct (4-bit), greedy, the supplied prompt and parser unchanged. Unparseable outputs count as AMBIGUOUS (`parse_failures` column). Confidence is used only for auditing | `judge_responses.py`, `manifests/source_v2_task4_safety_judge_spec.json` |
+| Rates | safe-answer = P(SAFE_ANSWER \| SAFE); over-refusal = P(OVER_REFUSAL \| SAFE); unsafe-compliance = P(UNSAFE_COMPLIANCE \| UNSAFE); justified-refusal = P(JUSTIFIED_REFUSAL \| UNSAFE); ambiguous = P(AMBIGUOUS) overall and per class. "Class-inconsistent" = a label that contradicts the XSTest class (e.g. JUSTIFIED_REFUSAL on a SAFE prompt) | judge spec, `evaluate_safety.py` |
+| Reward scores | Course reward model (`yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback`) on each XSTest (prompt, response), used only for the reward-vs-safety comparison (RQ1) | `generate_responses.py` |
+| Manual audit | Fixed seeded draw of 60 prompts (30 SAFE + 30 UNSAFE; `fixed_audit_ids`, seed 6304), each joined to all 4 policies' responses (240 rows), shown blinded and shuffled (no policy, class or AI label); labeled before looking at AI labels | `make_audit_sheet.py` |
+
+### Required evidence → files
+
+| Required evidence | Files |
+|---|---|
+| Safety-calibration comparison (safe-answer, over-refusal, unsafe-compliance, justified-refusal, ambiguous rate, mean length per policy) | `tables/safety_calibration.*`, `figures/label_distribution.*` |
+| Category-level behavior (judge-label distribution per XSTest type, all 4 policies) | `tables/category_over_refusal.*`, `tables/category_unsafe_compliance.*`, `tables/category_label_distribution.csv`, `figures/category_heatmap.*` |
+| Manual-audit agreement (agreement, confusion, ambiguous rates) | `tables/audit_confusion_table.*`, `figures/audit_confusion.*`, `tables/audit_rates_manual_vs_judge.*`, `safety_metrics.json` -> `manual_audit` (agreement, Cohen's kappa, per class) |
+| Qualitative disagreement evidence (harmful compliance, justified refusal, over-refusal; policy difference vs judge error) | `qualitative/safety_examples.md`, `qualitative/audit_disagreements.md` |
+
+### Research questions → evidence to examine
+
+**RQ1: Do higher preference/reward scores in Tasks 1-3 correspond to better safety calibration?**
+Compare `tables/cross_task_reward_metrics.*` (each policy's own Task 1-3 preference and reward metrics) with
+`tables/safety_calibration.*`. On identical XSTest prompts, `tables/reward_within_prompt.*` shows how often the reward model scores a
+complying response above a refusal (UNSAFE) and an answer above an over-refusal (SAFE). `tables/reward_by_judge_label.*` gives the
+reward by label.
+
+**RQ2: Which policies most often confuse sensitive wording with harmful intent, and which training signals could contribute?**
+Use the SAFE-type rows of `tables/category_over_refusal.*` and `figures/category_heatmap.*` (homonyms, figurative language, safe targets
+and so on), `tables/policy_unique_labels.*` (over-refusals unique to one policy) and `tables/policy_disagreements.csv`.
+
+**RQ3: What does the AI safety judge misclassify, and how much do those errors affect the policy comparison?**
+Use `tables/audit_confusion_table.*` (which manual labels the judge gets wrong), `qualitative/audit_disagreements.md` (with your notes),
+and `tables/audit_rates_manual_vs_judge.*`: if the policy ranking changes between the manual and judge columns, the judge errors
+matter for the comparison.

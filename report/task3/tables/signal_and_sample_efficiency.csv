@@ -1,0 +1,4 @@
+Run,Updates,Completions,Uninformative groups,Masked (truncated) completions,Zero-advantage completions,Tokens in loss / generated,Group std mean,Group std min,Reward mean (across updates) ± std,Grad-norm CV,"corr(group std, grad norm)"
+Standard GRPO (20 updates),20,80,0,16,0,0.5960552268244576,0.48161131162196397,0.05158940330147743,1.520 ± 1.168,1.1122989024928844,-0.23773348644705683
+Fork canonical GRPO (8 upd.),8,32,0,6,0,0.5814713896457766,0.38496987940743566,0.05158940330147743,1.741 ± 1.044,1.081626783218914,-0.5080205626826987
+Fork Dr. GRPO (8 upd.),8,32,0,7,0,0.5106499180775532,0.5010762778110802,0.05158940330147743,1.668 ± 1.126,0.3275559895743675,0.3070634773315134

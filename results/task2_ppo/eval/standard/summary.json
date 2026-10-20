@@ -1,0 +1,34 @@
+{
+  "name": "standard",
+  "adapter": "outputs/task2_ppo/standard",
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true,
+    "max_new_tokens": 768,
+    "seed": 6304
+  },
+  "n": 200,
+  "reward_mean": 1.7436421203613282,
+  "reward_std": 1.268525067987495,
+  "raw_reward_mean": 1.808642120361328,
+  "raw_reward_std": 1.2221279507213867,
+  "kl_token_mean": 5.339811700839658e-05,
+  "kl_sequence_mean": 0.015147710842356901,
+  "entropy_token_mean": 0.9880117658739105,
+  "length_tokens": {
+    "mean": 283.675,
+    "std": 247.97161001816318,
+    "median": 216.0,
+    "q25": 48.0,
+    "q75": 481.25,
+    "iqr": 433.25,
+    "max": 768.0
+  },
+  "eos_rate": 0.935,
+  "truncation_rate": 0.065,
+  "repetition_mean": 0.016440844636137816,
+  "corr_reward_vs_length": 0.2857415029687285,
+  "corr_reward_vs_kl_sequence": 0.004713191158305945,
+  "eval_wall_clock_s": 976.0023823750003
+}

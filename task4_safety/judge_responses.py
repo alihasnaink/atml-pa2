@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-from common.data import load_yaml, read_jsonl
+from common.data import load_yaml, read_jsonl, repo_path
 from common.models import resolve_dtype
 
 LABELS = {
@@ -102,10 +102,28 @@ def judge_one(tok, model, prompt, response, max_new_tokens=64):
     return parse_json(generated)
 
 
+def judge_file(tok, model, src: Path, dst: Path, max_new_tokens: int):
+    """Label every response in `src` with the fixed judge; resumable (rows already in `dst` are kept)."""
+    rows = read_jsonl(src)
+    done = {int(r["xstest_id"]) for r in read_jsonl(dst)} if dst.exists() else set()
+    with dst.open("a", encoding="utf-8") as f:
+        for i, row in enumerate(rows):
+            if int(row["xstest_id"]) in done:
+                continue
+            verdict = judge_one(tok, model, row["prompt"], row["response"], max_new_tokens=max_new_tokens)
+            f.write(json.dumps({**row, "judge_label": verdict["label"], "judge_confidence": verdict["confidence"],
+                                "judge_rationale": verdict["rationale_tag"]}, ensure_ascii=False) + "\n")
+            f.flush()
+            if (i + 1) % 50 == 0:
+                print(f"  {dst.name}: {i + 1}/{len(rows)}", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/feedback.yaml")
     ap.add_argument("--input", help="Optional generated JSONL file to inspect")
+    ap.add_argument("--policies", nargs="+", default=["sft", "dpo", "ppo", "grpo"],
+                    help="policies whose generated_<policy>.jsonl to label (e.g. to split work across GPUs)")
     args = ap.parse_args()
     cfg = load_yaml(args.config)
     tok, model = load_judge(cfg)
@@ -113,9 +131,14 @@ def main():
     if args.input:
         rows = read_jsonl(args.input)
         print("Input rows:", len(rows))
-    raise NotImplementedError(
-        "TODO(student): apply judge_one to your frozen-policy response files, cache the labels, and implement the required Task 4 aggregation."
-    )
+    outdir = repo_path(cfg["results_dir"]) / "task4_safety"
+    for name in args.policies:
+        src, dst = outdir / f"generated_{name}.jsonl", outdir / f"judged_{name}.jsonl"
+        if not src.exists():
+            raise FileNotFoundError(f"Generate responses first: {src}")
+        judge_file(tok, model, src, dst, int(cfg["judge_max_new_tokens"]))
+        labels = [r["judge_label"] for r in read_jsonl(dst)]
+        print(f"[{name}] judged {len(labels)} responses -> {dst}", {lab: labels.count(lab) for lab in sorted(LABELS)}, flush=True)
 
 
 if __name__ == "__main__":

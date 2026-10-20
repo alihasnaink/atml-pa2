@@ -1,0 +1,89 @@
+{
+  "clip_epsilon": 0.2,
+  "kl_beta": 0.1,
+  "max_completion_length": 512,
+  "all_pass": true,
+  "checks": {
+    "within_group_normalization": {
+      "max_abs_diff_vs_manual": 0.0,
+      "released_buggy_max_abs_diff_vs_manual": 2.545993441593019,
+      "pass": true
+    },
+    "zero_std_group_gets_zero_advantage": {
+      "fixed_group0": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "released_buggy_group0": [
+        -1.0633122552793914,
+        -1.0633122552793914,
+        -1.0633122552793914,
+        -1.0633122552793914
+      ],
+      "pass": true
+    },
+    "invariant_to_per_group_reward_shift": {
+      "fixed_max_change": 1.7763568394002505e-15,
+      "released_buggy_max_change": 1.3379347972550448,
+      "pass": true
+    },
+    "advantages_sum_to_zero_per_group": {
+      "group_sums": [
+        0.0,
+        2.220446049250313e-16,
+        -1.5543122344752192e-15,
+        -1.887379141862766e-15,
+        2.3314683517128287e-15
+      ],
+      "pass": true
+    },
+    "grpo_normalization": {
+      "loss": -5.551115123125783e-17,
+      "expected_loss": -5.551115123125783e-17,
+      "per_token_weight_by_length": {
+        "3": 0.08333333333333333,
+        "7": 0.03571428571428571,
+        "12": 0.020833333333333332,
+        "5": 0.05
+      },
+      "pass": true
+    },
+    "dr_grpo_normalization": {
+      "loss": -0.0012695312500000007,
+      "expected_loss": -0.0012695312500000007,
+      "per_token_weight_by_length": {
+        "3": 0.00048828125,
+        "7": 0.00048828125,
+        "12": 0.00048828125,
+        "5": 0.00048828125
+      },
+      "pass": true
+    },
+    "clipping_geometry": {
+      "zero_grad_[A>0,rho>1+e | A>0,rho<1-e | A<0,rho<1-e | A<0,rho>1+e]": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "pass": true
+    },
+    "kl_term": {
+      "kl_policy_eq_ref": 0.0,
+      "kl_shifted_ref": 0.04081822068171794,
+      "pass": true
+    },
+    "mask_truncated": {
+      "tokens_kept_per_sequence": [
+        3.0,
+        0.0,
+        12.0,
+        0.0
+      ],
+      "pass": true
+    }
+  },
+  "defect": "group_relative_advantages normalized over the whole batch; fixed to per-group (per-prompt) mean/std"
+}

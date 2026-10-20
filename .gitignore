@@ -28,3 +28,6 @@ data/*
 # Misc
 *.zip
 .DS_Store
+
+# Private evidence notes for writing the report (not submitted)
+report/*/analysis_notes.md

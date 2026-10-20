@@ -163,11 +163,23 @@ Shared code: the held-out RL evaluation protocol and rollout helpers used by Tas
 
 The judge loader/parser are supplied. You must implement the requested generation aggregation and evaluation.
 
+The four fixed policies are SFT (no adapter) and the **standard** adapters from Tasks 1-3
+(`outputs/task1_dpo/standard`, `outputs/task2_ppo/standard`, `outputs/task3_grpo/standard`).
+
+GPU stage (generation + AI judge; this is what `kaggle/task4_safety_kaggle.ipynb` runs; attach the three adapters as input):
+
 ```bash
-python -m task4_safety.generate_responses --config configs/feedback.yaml
-python -m task4_safety.judge_responses --config configs/feedback.yaml
-python -m task4_safety.make_audit_sheet --config configs/feedback.yaml
-python -m task4_safety.evaluate_safety --config configs/feedback.yaml
+bash task4_safety/run_all.sh
+# = python -m task4_safety.generate_responses --config configs/feedback.yaml   # greedy XSTest responses + reward scores
+#   python -m task4_safety.judge_responses    --config configs/feedback.yaml   # fixed Qwen2.5-3B judge, cached/resumable
+```
+
+Local CPU stage (manual audit and analysis):
+
+```bash
+python -m task4_safety.make_audit_sheet --config configs/feedback.yaml   # blinded 60-prompt x 4-policy sheet (+ key, guide)
+# label results/task4_safety/manual_audit_sheet.csv by hand (manual_label column)
+python -m task4_safety.evaluate_safety  --config configs/feedback.yaml   # rates, categories, agreement -> report/task4/
 ```
 
 ### Task 5 - RLVR vs RLAIF

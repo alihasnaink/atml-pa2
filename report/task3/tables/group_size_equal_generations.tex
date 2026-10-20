@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Equal-generation group-size study (192 cached completions, 24 prompts). Informative = group reward std > 1e-6.}
+\begin{tabular}{llllllllllll}
+\toprule
+K & Groups & Generations & Informative rate & Mean within-group std & Var(r - group mean) & Var(norm. adv.) & Frac. completions w/ gradient & Groups std<0.1 & Groups std<0.25 & All-subsets informative & All-subsets mean std \\
+\midrule
+2 & 96 & 192 & 0.938 & 0.385 & 0.337 & 0.937 & 0.786 & 0.240 & 0.510 & 0.948 & 0.385 \\
+4 & 48 & 192 & 0.958 & 0.541 & 0.468 & 0.958 & 0.807 & 0.062 & 0.250 & 0.958 & 0.549 \\
+8 & 24 & 192 & 0.958 & 0.619 & 0.560 & 0.958 & 0.807 & 0.042 & 0.125 & 0.958 & 0.619 \\
+\bottomrule
+\end{tabular}
+\end{table}

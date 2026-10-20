@@ -1,0 +1,7 @@
+**Where generated samples stop carrying learning signal (uninformative groups, masked truncations, zero advantages).**
+
+| Run | Updates | Completions | Uninformative groups | Masked (truncated) completions | Zero-advantage completions | Tokens in loss / generated | Group std mean | Group std min | Reward mean (across updates) ± std | Grad-norm CV | corr(group std, grad norm) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Standard GRPO (20 updates) | 20 | 80 | 0 | 16 | 0 | 0.596 | 0.482 | 0.052 | 1.520 ± 1.168 | 1.112 | -0.238 |
+| Fork canonical GRPO (8 upd.) | 8 | 32 | 0 | 6 | 0 | 0.581 | 0.385 | 0.052 | 1.741 ± 1.044 | 1.082 | -0.508 |
+| Fork Dr. GRPO (8 upd.) | 8 | 32 | 0 | 7 | 0 | 0.511 | 0.501 | 0.052 | 1.668 ± 1.126 | 0.328 | 0.307 |

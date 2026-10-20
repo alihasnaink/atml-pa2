@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Paired held-out differences versus the GRPO midpoint (same prompts; mean, bootstrap 95\% CI).}
+\begin{tabular}{lllllll}
+\toprule
+Condition - midpoint & Raw RM & Reward (eff.) & Len (tokens) & Truncated & Repetition & KL/seq \\
+\midrule
+SFT reference & -0.006 [-0.090, +0.078] & -0.006 [-0.090, +0.078] & -9.400 [-23.033, +3.852] & -0.005 [-0.025, +0.015] & +0.000 [-0.003, +0.002] & -0.010 [-0.022, +0.002] \\
+Standard GRPO (20 updates) & -0.073 [-0.222, +0.057] & -0.073 [-0.222, +0.057] & +1.105 [-17.046, +18.045] & +0.000 [-0.035, +0.030] & -0.006 [-0.018, +0.001] & +0.043 [+0.026, +0.061] \\
+Fork canonical GRPO (8 upd.) & +0.023 [-0.075, +0.122] & +0.023 [-0.075, +0.122] & -4.885 [-19.131, +8.421] & +0.005 [-0.020, +0.030] & +0.002 [-0.002, +0.008] & +0.012 [-0.002, +0.026] \\
+Fork Dr. GRPO (8 upd.) & -0.025 [-0.157, +0.091] & -0.025 [-0.157, +0.091] & -2.215 [-17.798, +12.021] & -0.005 [-0.035, +0.025] & +0.004 [-0.001, +0.011] & +0.018 [+0.004, +0.034] \\
+\bottomrule
+\end{tabular}
+\end{table}

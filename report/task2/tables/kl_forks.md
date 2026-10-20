@@ -1,0 +1,7 @@
+**Matched short forks (8 updates, eps=0.2) for each beta_KL.**
+
+| Condition | beta_KL | Updates | Gen. tokens | Held-out reward | Held-out raw RM | Held-out KL/token | Held-out KL/seq | Held-out entropy | Held-out len | Trunc. rate | Repetition | Train reward 1st/2nd half | Train KL 1st/2nd half | Train entropy 1st/2nd half | Train len 1st/2nd half |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Fork eps=0.20, beta_KL=0.00 | 0.000 | 8 | 1742 | 1.643 | 1.698 | 0.000 | 0.002 | 0.981 | 274.300 | 0.055 | 0.010 | 1.425 / 0.981 | -0.0002 / 0.0012 | 1.030 / 1.117 | 98 / 337 |
+| Fork eps=0.20, beta_KL=0.10 | 0.100 | 8 | 1643 | 1.739 | 1.809 | 0.000 | 0.009 | 0.980 | 278.160 | 0.070 | 0.014 | 1.425 / 1.723 | 0.0005 / 0.0002 | 1.029 / 1.073 | 98 / 312 |
+| Fork eps=0.20, beta_KL=0.20 | 0.200 | 8 | 1685 | 1.666 | 1.741 | -0.000 | -0.004 | 0.999 | 282.005 | 0.075 | 0.009 | 1.425 / 1.471 | -0.0001 / -0.0002 | 1.030 / 1.102 | 98 / 323 |

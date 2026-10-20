@@ -1,0 +1,68 @@
+{
+  "clip_epsilon": 0.2,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "kl_beta": 0.1,
+  "all_pass": true,
+  "checks": {
+    "matches_manual_min_surrogate": {
+      "fixed_objective": -0.14215729906902458,
+      "manual_objective": -0.14215729906902458,
+      "released_buggy_objective": 0.15745831506877525,
+      "pass": true
+    },
+    "objective_is_pessimistic_lower_bound": {
+      "fixed_le_unclipped_everywhere": true,
+      "buggy_le_unclipped_everywhere": false,
+      "pass": true
+    },
+    "clipping_gradient_geometry": {
+      "A>0, rho>1+eps (binds)": {
+        "fixed_grad": 0.0,
+        "released_buggy_grad": -1.4999999821906664,
+        "pass": true
+      },
+      "A>0, rho<1-eps (free)": {
+        "fixed_grad": -0.49999999904767284,
+        "released_buggy_grad": 0.0,
+        "pass": true
+      },
+      "A<0, rho<1-eps (binds)": {
+        "fixed_grad": 0.0,
+        "released_buggy_grad": 0.49999999904767284,
+        "pass": true
+      },
+      "A<0, rho>1+eps (free)": {
+        "fixed_grad": 1.4999999821906664,
+        "released_buggy_grad": 0.0,
+        "pass": true
+      },
+      "pass": true
+    },
+    "clip_and_affected_fraction_definitions": {
+      "clip_fraction": 0.7392500042915344,
+      "affected_fraction": 0.37700000405311584,
+      "clip_fraction_pos_adv": 0.7412587404251099,
+      "clip_fraction_neg_adv": 0.7372372150421143,
+      "manual_clip_fraction": 0.73925,
+      "manual_affected_fraction": 0.377,
+      "pass": true
+    },
+    "gae_matches_literal_sum": {
+      "max_abs_diff": 8.881784197001252e-16,
+      "returns_equal_adv_plus_values": true,
+      "pass": true
+    },
+    "kl_shaped_rewards": {
+      "max_abs_diff": 0.0,
+      "pass": true
+    },
+    "advantage_normalization": {
+      "mean": 2.2204460492503132e-17,
+      "std": 0.9999999999999999,
+      "padding_zero": true,
+      "pass": true
+    }
+  },
+  "defect": "ppo_policy_loss used torch.maximum(surr1, surr2); fixed to torch.minimum (pessimistic clipped surrogate)"
+}

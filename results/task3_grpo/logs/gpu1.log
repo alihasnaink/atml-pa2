@@ -1,0 +1,59 @@
+[gpu1] Cached prompts: 24
+[gpu1] Group sizes to analyze: [2, 4, 8]
+[gpu1] Cache row keys: ['clipped_at_max', 'completion', 'completion_tokens', 'generation_index', 'prompt_id', 'reward', 'source_index', 'terminated_with_eos']
+[gpu1] K=2: groups 96 informative 0.938 mean std 0.385 var(r-mu) 0.337
+[gpu1] K=4: groups 48 informative 0.958 mean std 0.541 var(r-mu) 0.468
+[gpu1] K=8: groups 24 informative 0.958 mean std 0.619 var(r-mu) 0.560
+[gpu1] Saved group-size study to /tmp/repo/results/task3_grpo/group_size.json
+[gpu1] Fork updates: 8
+[gpu1] Compare loss_type='grpo' vs loss_type='dr_grpo' from the identical supplied midpoint.
+[gpu1] [fork_grpo] updates=8 loss_type=grpo K=4 usable_prompts=944 dropped_long_prompts=256
+[gpu1] [fork_grpo] update 1/8 reward 1.988 std 0.375 kl -0.0002 ent 0.978 len 90 masked 0 gnorm 0.421 t 0.2m
+[gpu1] [fork_grpo] update 2/8 reward 2.265 std 0.598 kl -0.0002 ent 1.807 len 21 masked 0 gnorm 0.924 t 0.2m
+[gpu1] [fork_grpo] update 3/8 reward -0.415 std 0.374 kl 0.0008 ent 0.774 len 35 masked 0 gnorm 0.664 t 0.3m
+[gpu1] [fork_grpo] update 4/8 reward 2.561 std 0.333 kl 0.0001 ent 1.133 len 290 masked 0 gnorm 0.176 t 0.7m
+[gpu1] [fork_grpo] update 5/8 reward 0.729 std 0.311 kl -0.0001 ent 1.274 len 500 masked 3 gnorm 0.116 t 1.3m
+[gpu1] [fork_grpo] update 6/8 reward 2.649 std 0.725 kl 0.0000 ent 1.085 len 481 masked 2 gnorm 0.134 t 1.8m
+[gpu1] [fork_grpo] update 7/8 reward 2.781 std 0.313 kl 0.0002 ent 1.357 len 407 masked 1 gnorm 0.115 t 2.4m
+[gpu1] [fork_grpo] update 8/8 reward 1.375 std 0.052 kl 0.0010 ent 0.716 len 11 masked 0 gnorm 2.044 t 2.4m
+[gpu1] [fork_grpo] saved to /tmp/repo/outputs/task3_grpo/fork_grpo (2.4 min, peak 8.8 GB)
+[gpu1] [eval fork_grpo] adapter=outputs/task3_grpo/fork_grpo prompts=200
+[gpu1]   generated 16/200
+[gpu1]   generated 32/200
+[gpu1]   generated 48/200
+[gpu1]   generated 64/200
+[gpu1]   generated 80/200
+[gpu1]   generated 96/200
+[gpu1]   generated 112/200
+[gpu1]   generated 128/200
+[gpu1]   generated 144/200
+[gpu1]   generated 160/200
+[gpu1]   generated 176/200
+[gpu1]   generated 192/200
+[gpu1]   generated 200/200
+[gpu1] [eval fork_grpo] reward=1.786 raw=1.786 KL=0.0001 ent=0.974 len=279.7 trunc=0.08 (16.4 min)
+[gpu1] [fork_dr_grpo] updates=8 loss_type=dr_grpo K=4 usable_prompts=944 dropped_long_prompts=256
+[gpu1] [fork_dr_grpo] update 1/8 reward 1.988 std 0.375 kl -0.0002 ent 0.978 len 90 masked 0 gnorm 0.081 t 0.2m
+[gpu1] [fork_dr_grpo] update 2/8 reward 2.168 std 0.837 kl 0.0001 ent 1.840 len 22 masked 0 gnorm 0.040 t 0.2m
+[gpu1] [fork_dr_grpo] update 3/8 reward -0.415 std 0.374 kl 0.0008 ent 0.775 len 35 masked 0 gnorm 0.043 t 0.3m
+[gpu1] [fork_dr_grpo] update 4/8 reward 2.581 std 0.298 kl 0.0003 ent 1.120 len 263 masked 0 gnorm 0.078 t 0.7m
+[gpu1] [fork_dr_grpo] update 5/8 reward 0.181 std 0.928 kl 0.0000 ent 1.326 len 505 masked 3 gnorm 0.079 t 1.2m
+[gpu1] [fork_dr_grpo] update 6/8 reward 2.872 std 0.704 kl -0.0001 ent 1.146 len 499 masked 3 gnorm 0.082 t 1.8m
+[gpu1] [fork_dr_grpo] update 7/8 reward 2.599 std 0.442 kl 0.0003 ent 1.381 len 406 masked 1 gnorm 0.079 t 2.4m
+[gpu1] [fork_dr_grpo] update 8/8 reward 1.375 std 0.052 kl -0.0003 ent 0.717 len 11 masked 0 gnorm 0.029 t 2.5m
+[gpu1] [fork_dr_grpo] saved to /tmp/repo/outputs/task3_grpo/fork_dr_grpo (2.5 min, peak 8.8 GB)
+[gpu1] [eval fork_dr_grpo] adapter=outputs/task3_grpo/fork_dr_grpo prompts=200
+[gpu1]   generated 16/200
+[gpu1]   generated 32/200
+[gpu1]   generated 48/200
+[gpu1]   generated 64/200
+[gpu1]   generated 80/200
+[gpu1]   generated 96/200
+[gpu1]   generated 112/200
+[gpu1]   generated 128/200
+[gpu1]   generated 144/200
+[gpu1]   generated 160/200
+[gpu1]   generated 176/200
+[gpu1]   generated 192/200
+[gpu1]   generated 200/200
+[gpu1] [eval fork_dr_grpo] reward=1.738 raw=1.738 KL=0.0001 ent=0.963 len=282.4 trunc=0.07 (16.7 min)

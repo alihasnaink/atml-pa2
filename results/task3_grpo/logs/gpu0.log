@@ -1,0 +1,67 @@
+[gpu0] [standard] updates=20 loss_type=grpo K=4 usable_prompts=944 dropped_long_prompts=256
+[gpu0] [standard] update 1/20 reward 1.988 std 0.375 kl -0.0002 ent 0.978 len 90 masked 0 gnorm 0.421 t 0.2m
+[gpu0] [standard] update 2/20 reward 2.265 std 0.598 kl -0.0002 ent 1.807 len 21 masked 0 gnorm 0.924 t 0.2m
+[gpu0] [standard] update 3/20 reward -0.415 std 0.374 kl 0.0008 ent 0.774 len 35 masked 0 gnorm 0.664 t 0.2m
+[gpu0] [standard] update 4/20 reward 2.561 std 0.333 kl 0.0001 ent 1.133 len 290 masked 0 gnorm 0.176 t 0.6m
+[gpu0] [standard] update 5/20 reward 0.729 std 0.311 kl -0.0001 ent 1.274 len 500 masked 3 gnorm 0.116 t 1.2m
+[gpu0] [standard] update 6/20 reward 2.649 std 0.725 kl 0.0000 ent 1.085 len 481 masked 2 gnorm 0.134 t 1.7m
+[gpu0] [standard] update 7/20 reward 2.781 std 0.313 kl 0.0002 ent 1.357 len 407 masked 1 gnorm 0.115 t 2.3m
+[gpu0] [standard] update 8/20 reward 1.375 std 0.052 kl 0.0010 ent 0.716 len 11 masked 0 gnorm 2.044 t 2.3m
+[gpu0] [standard] update 9/20 reward 2.790 std 0.398 kl 0.0001 ent 1.029 len 437 masked 1 gnorm 0.097 t 2.8m
+[gpu0] [standard] update 10/20 reward 2.850 std 0.466 kl 0.0003 ent 1.244 len 474 masked 1 gnorm 0.102 t 3.4m
+[gpu0] [standard] update 11/20 reward 1.849 std 0.104 kl 0.0005 ent 0.886 len 202 masked 0 gnorm 0.203 t 3.6m
+[gpu0] [standard] update 12/20 reward 1.122 std 1.465 kl 0.0003 ent 0.848 len 494 masked 3 gnorm 0.098 t 4.1m
+[gpu0] [standard] update 13/20 reward 1.976 std 0.500 kl 0.0000 ent 1.191 len 395 masked 1 gnorm 0.099 t 4.7m
+[gpu0] [standard] update 14/20 reward 2.755 std 0.175 kl 0.0005 ent 0.993 len 44 masked 0 gnorm 0.547 t 4.8m
+[gpu0] [standard] update 15/20 reward 0.165 std 0.730 kl 0.0001 ent 1.047 len 512 masked 4 gnorm 0.000 t 5.3m
+[gpu0] [standard] update 16/20 reward 1.170 std 1.036 kl -0.0000 ent 0.457 len 288 masked 0 gnorm 0.410 t 5.8m
+[gpu0] [standard] update 17/20 reward 1.750 std 0.109 kl 0.0003 ent 1.034 len 240 masked 0 gnorm 0.162 t 6.1m
+[gpu0] [standard] update 18/20 reward -1.002 std 0.811 kl 0.0007 ent 1.018 len 34 masked 0 gnorm 0.853 t 6.2m
+[gpu0] [standard] update 19/20 reward -0.578 std 0.468 kl 0.0000 ent 1.742 len 52 masked 0 gnorm 0.623 t 6.3m
+[gpu0] [standard] update 20/20 reward 1.619 std 0.291 kl 0.0007 ent 0.612 len 64 masked 0 gnorm 0.478 t 6.4m
+[gpu0] [standard] saved to /tmp/repo/outputs/task3_grpo/standard (6.4 min, peak 8.8 GB)
+[gpu0] [eval sft] adapter=None prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval sft] reward=1.758 raw=1.758 KL=0.0000 ent=0.955 len=275.2 trunc=0.07 (14.0 min)
+[gpu0] [eval midpoint] adapter=checkpoints/grpo_midpoint_policy prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval midpoint] reward=1.764 raw=1.764 KL=0.0000 ent=0.966 len=284.6 trunc=0.07 (16.3 min)
+[gpu0] [eval standard] adapter=outputs/task3_grpo/standard prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval standard] reward=1.690 raw=1.690 KL=0.0002 ent=0.970 len=285.7 trunc=0.07 (16.3 min)

@@ -12,3 +12,6 @@ policies:
   grpo: outputs/task3_grpo/standard
   rlvr: checkpoints/rlvr_policy
   rlaif: checkpoints/rlaif_policy
+
+# --- Student additions (Task 4 implementation) ---
+safety_generation_batch_size: 16   # greedy decoding: batch size does not change the decoding rule

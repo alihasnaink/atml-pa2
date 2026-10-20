@@ -1,0 +1,2 @@
+Run,Updates,Generated tokens,Wall-clock (min),Peak VRAM (GB),GPU
+Standard GRPO (20 updates),20,20280,6.405978576216667,8.783540725708008,Tesla T4

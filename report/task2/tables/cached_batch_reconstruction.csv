@@ -1,0 +1,6 @@
+Check,Mean abs. diff
+mae_midpoint_vs_cached_old,0.04920902096637292
+mae_reference_vs_cached_ref,0.04878569518041331
+mae_value_predicting_pos,0.10891185258515179
+mae_value_token_pos,1.9506824053823948
+token-length mismatches,0.0

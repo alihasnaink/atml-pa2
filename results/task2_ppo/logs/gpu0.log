@@ -1,0 +1,119 @@
+[gpu0] [standard] updates=20 eps=0.2 kl_beta=0.1 usable_prompts=944 dropped_long_prompts=256
+[gpu0] [standard] update 1/20 reward 1.900 kl 0.0003 ent 0.789 len 88 clip 0.000 vloss 2.822 ev -8.89 t 0.1m
+[gpu0] [standard] update 2/20 reward 2.832 kl 0.0013 ent 1.534 len 21 clip 0.000 vloss 7.889 ev -5.03 t 0.1m
+[gpu0] [standard] update 3/20 reward -1.381 kl 0.0007 ent 0.664 len 27 clip 0.000 vloss 1.363 ev -70.06 t 0.2m
+[gpu0] [standard] update 4/20 reward 2.348 kl -0.0003 ent 1.130 len 257 clip 0.000 vloss 1.820 ev -4.45 t 0.4m
+[gpu0] [standard] update 5/20 reward 0.472 kl -0.0002 ent 1.203 len 462 clip 0.000 vloss 2.270 ev -4.31 t 0.9m
+[gpu0] [standard] update 6/20 reward 2.793 kl 0.0000 ent 0.974 len 298 clip 0.000 vloss 2.092 ev -3.98 t 1.2m
+[gpu0] [standard] update 7/20 reward 2.531 kl 0.0001 ent 1.454 len 480 clip 0.000 vloss 2.258 ev -3.45 t 1.6m
+[gpu0] [standard] update 8/20 reward 1.094 kl 0.0010 ent 0.659 len 10 clip 0.000 vloss 5.341 ev -50.85 t 1.7m
+[gpu0] [standard] update 9/20 reward 2.912 kl -0.0001 ent 1.015 len 436 clip 0.000 vloss 1.781 ev -5.46 t 2.1m
+[gpu0] [standard] update 10/20 reward 0.486 kl -0.0003 ent 1.349 len 512 clip 0.000 vloss 1.564 ev -5.35 t 2.6m
+[gpu0] [standard] update 11/20 reward 0.951 kl 0.0004 ent 0.979 len 211 clip 0.000 vloss 1.103 ev -16.37 t 2.8m
+[gpu0] [standard] update 12/20 reward 3.244 kl 0.0000 ent 0.886 len 512 clip 0.000 vloss 1.344 ev -3.45 t 3.3m
+[gpu0] [standard] update 13/20 reward 1.890 kl 0.0000 ent 1.189 len 374 clip 0.000 vloss 1.195 ev -14.10 t 3.6m
+[gpu0] [standard] update 14/20 reward 3.008 kl 0.0003 ent 0.932 len 39 clip 0.000 vloss 1.479 ev -11.29 t 3.7m
+[gpu0] [standard] update 15/20 reward -0.664 kl -0.0002 ent 0.978 len 512 clip 0.000 vloss 2.504 ev -3.50 t 4.2m
+[gpu0] [standard] update 16/20 reward 1.667 kl 0.0001 ent 0.515 len 382 clip 0.000 vloss 1.618 ev -9.85 t 4.5m
+[gpu0] [standard] update 17/20 reward 1.392 kl -0.0000 ent 1.150 len 206 clip 0.000 vloss 0.957 ev -1.55 t 4.7m
+[gpu0] [standard] update 18/20 reward -1.474 kl -0.0025 ent 0.790 len 13 clip 0.000 vloss 5.831 ev -18.52 t 4.8m
+[gpu0] [standard] update 19/20 reward -0.777 kl 0.0005 ent 1.773 len 65 clip 0.000 vloss 3.729 ev -11.90 t 4.8m
+[gpu0] [standard] update 20/20 reward 2.166 kl -0.0007 ent 0.743 len 62 clip 0.000 vloss 1.757 ev -9.78 t 4.9m
+[gpu0] [standard] saved to /tmp/repo/outputs/task2_ppo/standard (4.9 min, peak 9.5 GB)
+[gpu0] [eval sft] adapter=None prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval sft] reward=1.688 raw=1.758 KL=0.0000 ent=0.955 len=275.2 trunc=0.07 (14.0 min)
+[gpu0] [eval midpoint] adapter=checkpoints/ppo_midpoint_policy prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval midpoint] reward=1.697 raw=1.757 KL=-0.0000 ent=0.988 len=276.9 trunc=0.06 (16.2 min)
+[gpu0] [eval standard] adapter=outputs/task2_ppo/standard prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval standard] reward=1.744 raw=1.809 KL=0.0001 ent=0.988 len=283.7 trunc=0.07 (16.3 min)
+[gpu0] KL beta conditions: [0.0, 0.2]
+[gpu0] Fork update budget: 8
+[gpu0] [fork_eps0.20_kl0.00] updates=8 eps=0.2 kl_beta=0.0 usable_prompts=944 dropped_long_prompts=256
+[gpu0] [fork_eps0.20_kl0.00] update 1/8 reward 1.900 kl 0.0003 ent 0.789 len 88 clip 0.000 vloss 2.821 ev -8.89 t 0.1m
+[gpu0] [fork_eps0.20_kl0.00] update 2/8 reward 2.832 kl -0.0002 ent 1.534 len 21 clip 0.000 vloss 7.895 ev -5.03 t 0.1m
+[gpu0] [fork_eps0.20_kl0.00] update 3/8 reward -1.381 kl -0.0004 ent 0.665 len 27 clip 0.000 vloss 1.365 ev -69.83 t 0.2m
+[gpu0] [fork_eps0.20_kl0.00] update 4/8 reward 2.348 kl -0.0004 ent 1.130 len 257 clip 0.000 vloss 1.821 ev -4.45 t 0.4m
+[gpu0] [fork_eps0.20_kl0.00] update 5/8 reward -1.633 kl 0.0005 ent 1.569 len 512 clip 0.000 vloss 1.999 ev -22.31 t 0.9m
+[gpu0] [fork_eps0.20_kl0.00] update 6/8 reward 2.764 kl 0.0002 ent 0.922 len 315 clip 0.000 vloss 2.110 ev -3.46 t 1.3m
+[gpu0] [fork_eps0.20_kl0.00] update 7/8 reward 1.699 kl -0.0001 ent 1.315 len 512 clip 0.000 vloss 2.271 ev -3.37 t 1.8m
+[gpu0] [fork_eps0.20_kl0.00] update 8/8 reward 1.094 kl 0.0044 ent 0.661 len 10 clip 0.000 vloss 5.261 ev -51.05 t 1.8m
+[gpu0] [fork_eps0.20_kl0.00] saved to /tmp/repo/outputs/task2_ppo/fork_eps0.20_kl0.00 (1.8 min, peak 9.4 GB)
+[gpu0] [eval fork_eps0.20_kl0.00] adapter=outputs/task2_ppo/fork_eps0.20_kl0.00 prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval fork_eps0.20_kl0.00] reward=1.643 raw=1.698 KL=0.0000 ent=0.981 len=274.3 trunc=0.06 (16.1 min)
+[gpu0] [fork_eps0.20_kl0.20] updates=8 eps=0.2 kl_beta=0.2 usable_prompts=944 dropped_long_prompts=256
+[gpu0] [fork_eps0.20_kl0.20] update 1/8 reward 1.900 kl 0.0003 ent 0.789 len 88 clip 0.000 vloss 2.823 ev -8.88 t 0.1m
+[gpu0] [fork_eps0.20_kl0.20] update 2/8 reward 2.832 kl -0.0000 ent 1.534 len 21 clip 0.000 vloss 7.897 ev -5.03 t 0.1m
+[gpu0] [fork_eps0.20_kl0.20] update 3/8 reward -1.381 kl -0.0000 ent 0.664 len 27 clip 0.000 vloss 1.363 ev -69.71 t 0.2m
+[gpu0] [fork_eps0.20_kl0.20] update 4/8 reward 2.348 kl -0.0007 ent 1.131 len 257 clip 0.000 vloss 1.820 ev -4.46 t 0.5m
+[gpu0] [fork_eps0.20_kl0.20] update 5/8 reward 0.773 kl 0.0002 ent 1.515 len 455 clip 0.000 vloss 1.786 ev -8.02 t 0.9m
+[gpu0] [fork_eps0.20_kl0.20] update 6/8 reward 2.764 kl 0.0002 ent 0.922 len 315 clip 0.000 vloss 2.103 ev -3.48 t 1.3m
+[gpu0] [fork_eps0.20_kl0.20] update 7/8 reward 1.252 kl 0.0001 ent 1.311 len 512 clip 0.000 vloss 2.208 ev -4.06 t 1.8m
+[gpu0] [fork_eps0.20_kl0.20] update 8/8 reward 1.094 kl -0.0015 ent 0.660 len 10 clip 0.000 vloss 5.203 ev -55.49 t 1.8m
+[gpu0] [fork_eps0.20_kl0.20] saved to /tmp/repo/outputs/task2_ppo/fork_eps0.20_kl0.20 (1.8 min, peak 9.3 GB)
+[gpu0] [eval fork_eps0.20_kl0.20] adapter=outputs/task2_ppo/fork_eps0.20_kl0.20 prompts=200
+[gpu0]   generated 16/200
+[gpu0]   generated 32/200
+[gpu0]   generated 48/200
+[gpu0]   generated 64/200
+[gpu0]   generated 80/200
+[gpu0]   generated 96/200
+[gpu0]   generated 112/200
+[gpu0]   generated 128/200
+[gpu0]   generated 144/200
+[gpu0]   generated 160/200
+[gpu0]   generated 176/200
+[gpu0]   generated 192/200
+[gpu0]   generated 200/200
+[gpu0] [eval fork_eps0.20_kl0.20] reward=1.666 raw=1.741 KL=-0.0000 ent=0.999 len=282.0 trunc=0.07 (16.9 min)
