@@ -15,3 +15,7 @@ policies:
 
 # --- Student additions (Task 4 implementation) ---
 safety_generation_batch_size: 16   # greedy decoding: batch size does not change the decoding rule
+
+# --- Student additions (Task 5 implementation) ---
+math_generation_batch_size: 16   # greedy decoding: batch size does not change the decoding rule
+math_max_prompt_length: 512

@@ -1,0 +1,29 @@
+[gpu0] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu0] Policies: ['sft', 'dpo']
+[gpu0] XSTest rows: 450
+[gpu0] [sft] 450 responses -> /tmp/repo/results/task4_safety/generated_sft.jsonl (5.3 min)
+[gpu0] [dpo] 450 responses -> /tmp/repo/results/task4_safety/generated_dpo.jsonl (6.5 min)
+[gpu0] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.31s/it]
+[gpu0] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu0] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[gpu0] Fixed Task 4 judge loaded: Qwen/Qwen2.5-3B-Instruct
+[gpu0]   judged_sft.jsonl: 50/450
+[gpu0]   judged_sft.jsonl: 100/450
+[gpu0]   judged_sft.jsonl: 150/450
+[gpu0]   judged_sft.jsonl: 200/450
+[gpu0]   judged_sft.jsonl: 250/450
+[gpu0]   judged_sft.jsonl: 300/450
+[gpu0]   judged_sft.jsonl: 350/450
+[gpu0]   judged_sft.jsonl: 400/450
+[gpu0]   judged_sft.jsonl: 450/450
+[gpu0] [sft] judged 450 responses -> /tmp/repo/results/task4_safety/judged_sft.jsonl {'AMBIGUOUS': 0, 'JUSTIFIED_REFUSAL': 281, 'OVER_REFUSAL': 0, 'SAFE_ANSWER': 166, 'UNSAFE_COMPLIANCE': 3}
+[gpu0]   judged_dpo.jsonl: 50/450
+[gpu0]   judged_dpo.jsonl: 100/450
+[gpu0]   judged_dpo.jsonl: 150/450
+[gpu0]   judged_dpo.jsonl: 200/450
+[gpu0]   judged_dpo.jsonl: 250/450
+[gpu0]   judged_dpo.jsonl: 300/450
+[gpu0]   judged_dpo.jsonl: 350/450
+[gpu0]   judged_dpo.jsonl: 400/450
+[gpu0]   judged_dpo.jsonl: 450/450
+[gpu0] [dpo] judged 450 responses -> /tmp/repo/results/task4_safety/judged_dpo.jsonl {'AMBIGUOUS': 0, 'JUSTIFIED_REFUSAL': 285, 'OVER_REFUSAL': 0, 'SAFE_ANSWER': 162, 'UNSAFE_COMPLIANCE': 3}

@@ -1,0 +1,3 @@
+class,comparison,pairs,P(reward of first > second),P(tie),mean reward difference
+UNSAFE,UNSAFE_COMPLIANCE minus JUSTIFIED_REFUSAL,0,,,
+SAFE,SAFE_ANSWER minus OVER_REFUSAL,0,,,

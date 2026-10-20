@@ -229,3 +229,56 @@ and so on), `tables/policy_unique_labels.*` (over-refusals unique to one policy)
 Use `tables/audit_confusion_table.*` (which manual labels the judge gets wrong), `qualitative/audit_disagreements.md` (with your notes),
 and `tables/audit_rates_manual_vs_judge.*`: if the policy ranking changes between the manual and judge columns, the judge errors
 matter for the comparison.
+
+## Task 5: RLVR vs RLAIF (`report/task5/`)
+
+Produced by `python -m task5_feedback.compare_feedback --config configs/feedback.yaml` (CPU) from the raw results in
+`results/task5_feedback/`:
+- `{gsm,transfer}/generations_<policy>.jsonl`: response, tokens, truncation and verifier fields (prediction, exact, format, failure type).
+- `{gsm,transfer}/pairwise.jsonl`: judge and verifier verdicts for every policy pair on every prompt.
+- `{gsm,transfer}/summary.json`
+- `diagnostics/{pairs,group_rewards}.jsonl` and `diagnostics/summary.json`
+- `*/judge_cache.json`
+- `feedback_comparison.json`
+
+### Setup facts to state in the report
+
+| Item | Value | Source |
+|---|---|---|
+| Policies | SFT = untouched Qwen2.5-1.5B-Instruct; RLVR and RLAIF = the supplied frozen course LoRA adapters (same base, GSM8K prompts, optimizer family, group size and approximate token budget; not retrained) | `configs/feedback.yaml` -> `policies`, manual |
+| In-domain prompts | Fixed GSM8K evaluation subset: 300 test problems, prompt asks to end with `#### <number>` | `data/gsm8k_eval.jsonl` |
+| Transfer prompts | Fixed SVAMP subset: the first 100 challenge-set examples (57 subtraction, 20 addition, 14 common-division, 9 multiplication), used unchanged | `data/math_transfer_eval.jsonl` |
+| Decoding | Greedy, one response per policy and prompt, max 512 new tokens, the same for all policies and both datasets | `evaluate_math.py`, `math_max_new_tokens` |
+| Exact verifier | Supplied `exact_reward`: the last `#### <number>` field only, numeric equality. Intermediate numbers are ignored. "Strict format" additionally requires the response to end with that field | `rlvr.py` |
+| AI judge | Supplied `PairwiseAIJudge` (Qwen2.5-3B-Instruct, 4-bit, greedy, rubric unchanged), with deterministic hash-based A/B orientation and a cache. Win rate vs SFT = (wins + 0.5 ties) / n on the same prompts | `rlaif.py` |
+| Diagnostic set | 20 GSM8K problems x 5 manually validated variants. Each perturbed variant is paired with the problem's clean correct response. The five variants are also scored as one K=5 group with the RLAIF group reward (wins + 0.5 ties)/(K-1) | `data/task5_controlled_reward_diagnostics.jsonl`, `score_perturbations.py` |
+| Judge self-consistency | Each diagnostic pair is also judged with the arguments reversed (a new orientation draw) | `score_perturbations.py` |
+
+### Required evidence → files
+
+| Required evidence | Files |
+|---|---|
+| In-domain comparison (exact accuracy, AI pairwise result vs SFT, format compliance, mean length, verifier-judge agreement) | `tables/in_domain.*`, `tables/verifier_judge_agreement.*`, `figures/in_vs_out_of_domain.*` |
+| Controlled diagnostic study (better / tie / wrong per category and mechanism; S_reason, S_outcome) | `tables/diagnostic_pairs.*`, `tables/diagnostic_sensitivity.*`, `figures/diagnostic_preferences.*`, `tables/diagnostic_group_rewards.*` |
+| Out-of-domain comparison (exact accuracy, AI pairwise result, length, drop from in-domain) | `tables/transfer.*`, `tables/transfer_drop.*`, `tables/transfer_by_type.*`, `figures/in_vs_out_of_domain.*` |
+| Failure types (in-domain and transfer) | `tables/failure_types.*`, `figures/failure_types.*` |
+| Qualitative diagnostic evidence (reasoning-only corruption, persuasive filler, wrong final / gold distractor) | `qualitative/examples.md` |
+| Feedback-source discussion (coverage, noise, exploitability, inference cost) | coverage: verifier ties in `tables/verifier_judge_agreement.*` and `tables/diagnostic_pairs.*`; noise: judge order-consistency in `tables/diagnostic_pairs.*`; exploitability: filler and distractor rows; cost: `tables/feedback_cost.*` |
+
+### Research questions → evidence to examine
+
+**RQ1: Where does AI preference feedback distinguish responses that the binary verifier treats identically, and when is that useful?**
+Look at the "both correct / both wrong, judge breaks tie" columns of `tables/verifier_judge_agreement.*`, and at the reasoning-corruption
+and filler rows of `tables/diagnostic_pairs.*`, where the verifier ties by construction.
+
+**RQ2: When does the AI judge make an incorrect distinction because of style, verbosity or persuasive framing?**
+Use the filler row (judge "wrong preference" = filler susceptibility), the judge order-consistency column, and the RLAIF group rewards
+of the filler variant in `tables/diagnostic_group_rewards.*`. Read S_reason (`tables/diagnostic_sensitivity.*`) next to these results.
+
+**RQ3: Which reward source is more vulnerable to each diagnostic category?**
+Compare the verifier and judge rows per category in `tables/diagnostic_pairs.*` and `figures/diagnostic_preferences.*`. The
+gold-distractor row tests verifier specification, and the filler and outcome rows test judge bias. Quote cases from `qualitative/examples.md`.
+
+**RQ4: Which behaviors transfer to the out-of-domain set?**
+Use `tables/transfer_drop.*` (accuracy and win-rate change, length), `tables/transfer_by_type.*`, and `tables/failure_types.*`
+(e.g. whether format compliance or missing-final failures change on SVAMP, whose prompt wording differs from GSM8K).

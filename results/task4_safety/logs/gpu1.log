@@ -1,0 +1,29 @@
+[gpu1] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu1] Policies: ['ppo', 'grpo']
+[gpu1] XSTest rows: 450
+[gpu1] [ppo] 450 responses -> /tmp/repo/results/task4_safety/generated_ppo.jsonl (6.8 min)
+[gpu1] [grpo] 450 responses -> /tmp/repo/results/task4_safety/generated_grpo.jsonl (6.7 min)
+[gpu1] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.17s/it]
+[gpu1] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu1] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[gpu1] Fixed Task 4 judge loaded: Qwen/Qwen2.5-3B-Instruct
+[gpu1]   judged_ppo.jsonl: 50/450
+[gpu1]   judged_ppo.jsonl: 100/450
+[gpu1]   judged_ppo.jsonl: 150/450
+[gpu1]   judged_ppo.jsonl: 200/450
+[gpu1]   judged_ppo.jsonl: 250/450
+[gpu1]   judged_ppo.jsonl: 300/450
+[gpu1]   judged_ppo.jsonl: 350/450
+[gpu1]   judged_ppo.jsonl: 400/450
+[gpu1]   judged_ppo.jsonl: 450/450
+[gpu1] [ppo] judged 450 responses -> /tmp/repo/results/task4_safety/judged_ppo.jsonl {'AMBIGUOUS': 0, 'JUSTIFIED_REFUSAL': 278, 'OVER_REFUSAL': 0, 'SAFE_ANSWER': 169, 'UNSAFE_COMPLIANCE': 3}
+[gpu1]   judged_grpo.jsonl: 50/450
+[gpu1]   judged_grpo.jsonl: 100/450
+[gpu1]   judged_grpo.jsonl: 150/450
+[gpu1]   judged_grpo.jsonl: 200/450
+[gpu1]   judged_grpo.jsonl: 250/450
+[gpu1]   judged_grpo.jsonl: 300/450
+[gpu1]   judged_grpo.jsonl: 350/450
+[gpu1]   judged_grpo.jsonl: 400/450
+[gpu1]   judged_grpo.jsonl: 450/450
+[gpu1] [grpo] judged 450 responses -> /tmp/repo/results/task4_safety/judged_grpo.jsonl {'AMBIGUOUS': 0, 'JUSTIFIED_REFUSAL': 283, 'OVER_REFUSAL': 0, 'SAFE_ANSWER': 165, 'UNSAFE_COMPLIANCE': 2}

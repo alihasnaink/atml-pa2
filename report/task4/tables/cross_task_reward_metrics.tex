@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Preference/reward metrics of the same policies from Tasks 1-3 (their own held-out sets).}
+\begin{tabular}{llll}
+\toprule
+Policy & Source & Metric & Value \\
+\midrule
+SFT & - & reference policy & n/a \\
+DPO & results/task1\_dpo/eval/standard/summary.json & held-out pref. accuracy & 0.633 \\
+DPO & results/task1\_dpo/eval/standard/summary.json & held-out RM score & 1.390 \\
+DPO & results/task1\_dpo/eval/standard/summary.json & KL/token & 0.000 \\
+PPO & results/task2\_ppo/eval/standard/summary.json & held-out raw RM & 1.809 \\
+PPO & results/task2\_ppo/eval/standard/summary.json & KL/token & 0.000 \\
+GRPO & results/task3\_grpo/eval/standard/summary.json & held-out raw RM & 1.690 \\
+GRPO & results/task3\_grpo/eval/standard/summary.json & KL/token & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}

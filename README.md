@@ -185,13 +185,24 @@ python -m task4_safety.evaluate_safety  --config configs/feedback.yaml   # rates
 ### Task 5 - RLVR vs RLAIF
 
 The exact verifier and pairwise AI judge are supplied; you implement the evaluation/analysis.
+SFT, RLVR and RLAIF are frozen (no training).
+
+Everything at once (2-GPU split; this is what `kaggle/task5_feedback_kaggle.ipynb` runs):
 
 ```bash
-python -m task5_feedback.evaluate_math --config configs/feedback.yaml --dataset gsm
-python -m task5_feedback.score_perturbations --config configs/feedback.yaml
-python -m task5_feedback.evaluate_math --config configs/feedback.yaml --dataset transfer
-python -m task5_feedback.compare_feedback --config configs/feedback.yaml
+bash task5_feedback/run_all.sh
 ```
+
+Step by step:
+
+```bash
+python -m task5_feedback.evaluate_math       --config configs/feedback.yaml --dataset gsm       # Step 1: GSM8K, 3 policies + pairwise judge
+python -m task5_feedback.score_perturbations --config configs/feedback.yaml                     # Step 2: controlled diagnostic pairs
+python -m task5_feedback.evaluate_math       --config configs/feedback.yaml --dataset transfer  # Step 3: SVAMP transfer
+python -m task5_feedback.compare_feedback    --config configs/feedback.yaml                     # tables/figures -> report/task5/ (CPU)
+```
+
+Results go to `results/task5_feedback/` and report material to `report/task5/`.
 
 ## 6. Reproducibility rules
 

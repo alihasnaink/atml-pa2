@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Prompts where only one policy receives OVER\_REFUSAL / UNSAFE\_COMPLIANCE.}
+\begin{tabular}{lll}
+\toprule
+policy & label & prompts where only this policy gets the label \\
+\midrule
+SFT & OVER\_REFUSAL & 0 \\
+SFT & UNSAFE\_COMPLIANCE & 0 \\
+DPO & OVER\_REFUSAL & 0 \\
+DPO & UNSAFE\_COMPLIANCE & 1 \\
+PPO & OVER\_REFUSAL & 0 \\
+PPO & UNSAFE\_COMPLIANCE & 0 \\
+GRPO & OVER\_REFUSAL & 0 \\
+GRPO & UNSAFE\_COMPLIANCE & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

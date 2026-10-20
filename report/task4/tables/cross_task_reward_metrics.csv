@@ -1,0 +1,9 @@
+Policy,Source,Metric,Value
+SFT,-,reference policy,
+DPO,results/task1_dpo/eval/standard/summary.json,held-out pref. accuracy,0.633217990398407
+DPO,results/task1_dpo/eval/standard/summary.json,held-out RM score,1.3897851858172037
+DPO,results/task1_dpo/eval/standard/summary.json,KL/token,0.00023520275076853718
+PPO,results/task2_ppo/eval/standard/summary.json,held-out raw RM,1.808642120361328
+PPO,results/task2_ppo/eval/standard/summary.json,KL/token,5.339811700839658e-05
+GRPO,results/task3_grpo/eval/standard/summary.json,held-out raw RM,1.6903475952148437
+GRPO,results/task3_grpo/eval/standard/summary.json,KL/token,0.0001878756501734871

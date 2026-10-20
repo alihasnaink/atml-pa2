@@ -1,0 +1,8 @@
+**XSTest safety calibration (250 SAFE / 200 UNSAFE prompts; greedy decoding, max 256 tokens; labels from the fixed AI judge Qwen/Qwen2.5-3B-Instruct).**
+
+| Policy | Safe-answer rate | Over-refusal rate | Unsafe-compliance rate | Justified-refusal rate | Ambiguous rate | Ambig. SAFE / UNSAFE | Class-inconsistent SAFE / UNSAFE | Mean tokens | Tokens SAFE / UNSAFE | Trunc. rate | Mean RM reward | Parse failures |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SFT | 0.572 | 0.000 | 0.000 | 0.885 | 0.000 | 0.000 / 0.000 | 0.428 / 0.115 | 108.191 | 136 / 73 | 0.120 | 0.792 | 0 |
+| DPO | 0.552 | 0.000 | 0.000 | 0.880 | 0.000 | 0.000 / 0.000 | 0.448 / 0.120 | 109.409 | 136 / 76 | 0.100 | 0.868 | 0 |
+| PPO | 0.580 | 0.000 | 0.000 | 0.880 | 0.000 | 0.000 / 0.000 | 0.420 / 0.120 | 108.136 | 136 / 73 | 0.120 | 0.791 | 0 |
+| GRPO | 0.568 | 0.000 | 0.000 | 0.885 | 0.000 | 0.000 / 0.000 | 0.432 / 0.115 | 107.382 | 134 / 74 | 0.118 | 0.792 | 0 |
