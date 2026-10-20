@@ -1,0 +1,74 @@
+[gpu0] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu0] gsm: 300 prompts; policies ['sft', 'rlvr', 'rlaif']
+[gpu0]   [sft] 16/300
+[gpu0]   [sft] 32/300
+[gpu0]   [sft] 48/300
+[gpu0]   [sft] 64/300
+[gpu0]   [sft] 80/300
+[gpu0]   [sft] 96/300
+[gpu0]   [sft] 112/300
+[gpu0]   [sft] 128/300
+[gpu0]   [sft] 144/300
+[gpu0]   [sft] 160/300
+[gpu0]   [sft] 176/300
+[gpu0]   [sft] 192/300
+[gpu0]   [sft] 208/300
+[gpu0]   [sft] 224/300
+[gpu0]   [sft] 240/300
+[gpu0]   [sft] 256/300
+[gpu0]   [sft] 272/300
+[gpu0]   [sft] 288/300
+[gpu0]   [sft] 300/300
+[gpu0] [sft] -> /tmp/repo/results/task5_feedback/gsm/generations_sft.jsonl (5.8 min)
+[gpu0]   [rlvr] 16/300
+[gpu0]   [rlvr] 32/300
+[gpu0]   [rlvr] 48/300
+[gpu0]   [rlvr] 64/300
+[gpu0]   [rlvr] 80/300
+[gpu0]   [rlvr] 96/300
+[gpu0]   [rlvr] 112/300
+[gpu0]   [rlvr] 128/300
+[gpu0]   [rlvr] 144/300
+[gpu0]   [rlvr] 160/300
+[gpu0]   [rlvr] 176/300
+[gpu0]   [rlvr] 192/300
+[gpu0]   [rlvr] 208/300
+[gpu0]   [rlvr] 224/300
+[gpu0]   [rlvr] 240/300
+[gpu0]   [rlvr] 256/300
+[gpu0]   [rlvr] 272/300
+[gpu0]   [rlvr] 288/300
+[gpu0]   [rlvr] 300/300
+[gpu0] [rlvr] -> /tmp/repo/results/task5_feedback/gsm/generations_rlvr.jsonl (7.0 min)
+[gpu0]   [rlaif] 16/300
+[gpu0]   [rlaif] 32/300
+[gpu0]   [rlaif] 48/300
+[gpu0]   [rlaif] 64/300
+[gpu0]   [rlaif] 80/300
+[gpu0]   [rlaif] 96/300
+[gpu0]   [rlaif] 112/300
+[gpu0]   [rlaif] 128/300
+[gpu0]   [rlaif] 144/300
+[gpu0]   [rlaif] 160/300
+[gpu0]   [rlaif] 176/300
+[gpu0]   [rlaif] 192/300
+[gpu0]   [rlaif] 208/300
+[gpu0]   [rlaif] 224/300
+[gpu0]   [rlaif] 240/300
+[gpu0]   [rlaif] 256/300
+[gpu0]   [rlaif] 272/300
+[gpu0]   [rlaif] 288/300
+[gpu0]   [rlaif] 300/300
+[gpu0] [rlaif] -> /tmp/repo/results/task5_feedback/gsm/generations_rlaif.jsonl (6.8 min)
+[gpu0] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.09s/it]
+[gpu0] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[gpu0]   judged sft vs rlvr
+[gpu0]   judged sft vs rlaif
+[gpu0]   judged rlvr vs rlaif
+[gpu0] [sft] acc=0.273 strict_format=0.323 tokens=275
+[gpu0] [rlvr] acc=0.293 strict_format=0.340 tokens=276
+[gpu0] [rlaif] acc=0.290 strict_format=0.330 tokens=277
+[gpu0] [rlvr vs sft] judge win rate=0.507 (W/T/L 0.03/0.96/0.01)
+[gpu0] [rlaif vs sft] judge win rate=0.503 (W/T/L 0.02/0.97/0.01)
+[gpu0] verifier-judge agreement: {'n_pairs': 900, 'n_verifier_separates': 28, 'judge_agrees': 0.10714285714285714, 'judge_tie_when_verifier_separates': 0.8928571428571429, 'judge_prefers_wrong': 0.0, 'overall_three_way_agreement': 0.9422222222222222, 'n_both_correct': 243, 'judge_breaks_tie_both_correct': 0.00411522633744856, 'n_both_wrong': 629, 'judge_breaks_tie_both_wrong': 0.04133545310015898}
+[gpu0] -> /tmp/repo/results/task5_feedback/gsm/summary.json

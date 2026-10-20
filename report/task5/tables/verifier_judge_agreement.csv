@@ -1,0 +1,9 @@
+Dataset,Pair,Pairs,Verifier separates,Judge agrees,Judge ties,Judge prefers wrong,Both correct (n) / judge breaks tie,Both wrong (n) / judge breaks tie
+GSM8K (in-domain),all pairs,900,28,0.10714285714285714,0.8928571428571429,0.0,243 / 0.004,629 / 0.041
+GSM8K (in-domain),SFT vs RLVR,300,12,0.16666666666666666,0.8333333333333334,0.0,79 / 0.000,209 / 0.048
+GSM8K (in-domain),SFT vs RLAIF,300,5,0.2,0.8,0.0,82 / 0.000,213 / 0.033
+GSM8K (in-domain),RLVR vs RLAIF,300,11,0.0,1.0,0.0,82 / 0.012,207 / 0.043
+SVAMP (transfer),all pairs,300,14,0.14285714285714285,0.5714285714285714,0.2857142857142857,129 / 0.178,157 / 0.236
+SVAMP (transfer),SFT vs RLVR,100,6,0.16666666666666666,0.5,0.3333333333333333,41 / 0.171,53 / 0.226
+SVAMP (transfer),SFT vs RLAIF,100,6,0.0,0.6666666666666666,0.3333333333333333,42 / 0.167,52 / 0.250
+SVAMP (transfer),RLVR vs RLAIF,100,2,0.5,0.5,0.0,46 / 0.196,52 / 0.231

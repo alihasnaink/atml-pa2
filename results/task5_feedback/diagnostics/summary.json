@@ -1,0 +1,147 @@
+{
+  "n_problems": 20,
+  "verifier_expected_mismatches": [],
+  "pairs": {
+    "corrupt_reasoning_correct_final": {
+      "family": "reasoning",
+      "verifier": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 1.0,
+        "wrong": 0.0
+      },
+      "judge": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 1.0,
+        "wrong": 0.0
+      },
+      "judge_reversed": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 1.0,
+        "wrong": 0.0
+      },
+      "judge_order_consistency": 1.0,
+      "verifier_judge_same_outcome": 1.0
+    },
+    "good_reasoning_wrong_final": {
+      "family": "outcome",
+      "verifier": {
+        "n": 20,
+        "better": 1.0,
+        "tie": 0.0,
+        "wrong": 0.0
+      },
+      "judge": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 1.0,
+        "wrong": 0.0
+      },
+      "judge_reversed": {
+        "n": 20,
+        "better": 0.15,
+        "tie": 0.85,
+        "wrong": 0.0
+      },
+      "judge_order_consistency": 0.85,
+      "verifier_judge_same_outcome": 0.0
+    },
+    "persuasive_filler_correct": {
+      "family": "filler",
+      "verifier": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 1.0,
+        "wrong": 0.0
+      },
+      "judge": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 0.75,
+        "wrong": 0.25
+      },
+      "judge_reversed": {
+        "n": 20,
+        "better": 0.0,
+        "tie": 0.75,
+        "wrong": 0.25
+      },
+      "judge_order_consistency": 1.0,
+      "verifier_judge_same_outcome": 0.75
+    },
+    "gold_distractor_wrong_final": {
+      "family": "distractor",
+      "verifier": {
+        "n": 20,
+        "better": 1.0,
+        "tie": 0.0,
+        "wrong": 0.0
+      },
+      "judge": {
+        "n": 20,
+        "better": 0.25,
+        "tie": 0.7,
+        "wrong": 0.05
+      },
+      "judge_reversed": {
+        "n": 20,
+        "better": 0.15,
+        "tie": 0.8,
+        "wrong": 0.05
+      },
+      "judge_order_consistency": 0.7,
+      "verifier_judge_same_outcome": 0.25
+    }
+  },
+  "S_reason": {
+    "verifier": 0.0,
+    "judge": 0.0
+  },
+  "S_outcome": {
+    "verifier": 1.0,
+    "judge": 0.0
+  },
+  "filler_susceptibility": {
+    "verifier": 0.0,
+    "judge": 0.25
+  },
+  "distractor_robustness": {
+    "verifier": 1.0,
+    "judge": 0.25
+  },
+  "judge_order_consistency_overall": 0.8875,
+  "group_rewards": {
+    "clean_correct": {
+      "rlaif_group_reward_mean": 0.49375,
+      "rlaif_group_reward_std": 0.08361930100162282,
+      "exact_mean": 1.0
+    },
+    "corrupt_reasoning_correct_final": {
+      "rlaif_group_reward_mean": 0.5,
+      "rlaif_group_reward_std": 0.07905694150420949,
+      "exact_mean": 1.0
+    },
+    "good_reasoning_wrong_final": {
+      "rlaif_group_reward_mean": 0.475,
+      "rlaif_group_reward_std": 0.049999999999999996,
+      "exact_mean": 0.0
+    },
+    "persuasive_filler_correct": {
+      "rlaif_group_reward_mean": 0.5875,
+      "rlaif_group_reward_std": 0.13169567191065926,
+      "exact_mean": 1.0
+    },
+    "gold_distractor_wrong_final": {
+      "rlaif_group_reward_mean": 0.44375,
+      "rlaif_group_reward_std": 0.13961442439805424,
+      "exact_mean": 0.0
+    }
+  },
+  "judge_cost": {
+    "new_judge_calls": 160,
+    "judge_seconds": 58.6387797820006,
+    "seconds_per_call": 0.36649237363750375
+  }
+}

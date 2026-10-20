@@ -1,0 +1,5 @@
+Statistic,Verifier,AI judge
+S_reason = Pr[R(clean) > R(reason-corrupt)],0.0,0.0
+S_outcome = Pr[R(correct final) > R(wrong final)],1.0,0.0
+Filler susceptibility = Pr[R(filler) > R(clean)],0.0,0.25
+Distractor robustness = Pr[R(clean) > R(distractor)],1.0,0.25

@@ -1,0 +1,12 @@
+**Controlled diagnostic pairs (20 problems; each perturbed variant vs the clean correct response). For the filler pair a tie is also acceptable; preferring the filler is a wrong preference.**
+
+| Pair (clean vs ...) | Family | Mechanism | n | Prefers better | Tie | Wrong preference | Judge order-consistency |
+|---|---|---|---|---|---|---|---|
+| corrupt reasoning, correct final | reasoning | verifier | 20 | 0.000 | 1.000 | 0.000 | n/a |
+| corrupt reasoning, correct final | reasoning | judge | 20 | 0.000 | 1.000 | 0.000 | 1.000 |
+| good reasoning, wrong final | outcome | verifier | 20 | 1.000 | 0.000 | 0.000 | n/a |
+| good reasoning, wrong final | outcome | judge | 20 | 0.000 | 1.000 | 0.000 | 0.850 |
+| persuasive filler, correct | filler | verifier | 20 | 0.000 | 1.000 | 0.000 | n/a |
+| persuasive filler, correct | filler | judge | 20 | 0.000 | 0.750 | 0.250 | 1.000 |
+| gold distractor, wrong final | distractor | verifier | 20 | 1.000 | 0.000 | 0.000 | n/a |
+| gold distractor, wrong final | distractor | judge | 20 | 0.250 | 0.700 | 0.050 | 0.700 |

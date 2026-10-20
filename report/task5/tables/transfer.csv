@@ -1,0 +1,4 @@
+Policy,Exact acc.,Acc. - SFT [95% CI],Judge win rate vs SFT (W/T/L),Strict format,Has #### final,Multiple ####,Trunc. rate,Tokens mean ± std,Tokens correct / wrong
+SFT,0.42,ref.,0.5 (ref.),0.45,0.55,0.0,0.0,163.3 ± 70.9,134 / 184
+RLVR,0.46,"+0.040 [+0.000, +0.090]",0.470 (0.08/0.78/0.14),0.47,0.58,0.0,0.0,164.4 ± 72.1,145 / 181
+RLAIF,0.48,"+0.060 [+0.020, +0.110]",0.460 (0.07/0.78/0.15),0.5,0.62,0.0,0.0,164.3 ± 73.0,146 / 182

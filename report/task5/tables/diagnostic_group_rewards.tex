@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{RLAIF group reward (wins + 0.5 ties)/(K-1) with the five variants of each problem as one K=5 group, next to the exact reward.}
+\begin{tabular}{lll}
+\toprule
+Variant & Exact reward (mean) & RLAIF group reward K=5 (mean $\pm$ std) \\
+\midrule
+clean correct & 1.000 & 0.494 $\pm$ 0.084 \\
+corrupt reasoning, correct final & 1.000 & 0.500 $\pm$ 0.079 \\
+good reasoning, wrong final & 0.000 & 0.475 $\pm$ 0.050 \\
+persuasive filler, correct & 1.000 & 0.588 $\pm$ 0.132 \\
+gold distractor, wrong final & 0.000 & 0.444 $\pm$ 0.140 \\
+\bottomrule
+\end{tabular}
+\end{table}

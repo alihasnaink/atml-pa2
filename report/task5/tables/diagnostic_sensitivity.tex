@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Reasoning/outcome sensitivity and robustness statistics.}
+\begin{tabular}{lll}
+\toprule
+Statistic & Verifier & AI judge \\
+\midrule
+S\_reason = Pr[R(clean) > R(reason-corrupt)] & 0.000 & 0.000 \\
+S\_outcome = Pr[R(correct final) > R(wrong final)] & 1.000 & 0.000 \\
+Filler susceptibility = Pr[R(filler) > R(clean)] & 0.000 & 0.250 \\
+Distractor robustness = Pr[R(clean) > R(distractor)] & 1.000 & 0.250 \\
+\bottomrule
+\end{tabular}
+\end{table}

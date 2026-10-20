@@ -1,0 +1,141 @@
+{
+  "gsm": {
+    "sft": {
+      "n": 300,
+      "cumulative_accuracy": {
+        "strict": 0.2733333333333333,
+        "hash_loose": 0.3566666666666667,
+        "boxed": 0.43,
+        "last_line": 0.6733333333333333
+      },
+      "tier_counts": {
+        "last_line": 121,
+        "strict": 106,
+        "boxed": 33,
+        "None": 6,
+        "hash_loose": 34
+      },
+      "tier_accuracy": {
+        "strict": 0.7735849056603774,
+        "hash_loose": 0.7352941176470589,
+        "boxed": 0.6666666666666666,
+        "last_line": 0.6033057851239669
+      },
+      "no_number_found": 6
+    },
+    "rlvr": {
+      "n": 300,
+      "cumulative_accuracy": {
+        "strict": 0.29333333333333333,
+        "hash_loose": 0.36,
+        "boxed": 0.43666666666666665,
+        "last_line": 0.6733333333333333
+      },
+      "tier_counts": {
+        "last_line": 121,
+        "strict": 109,
+        "boxed": 35,
+        "None": 5,
+        "hash_loose": 30
+      },
+      "tier_accuracy": {
+        "strict": 0.8073394495412844,
+        "hash_loose": 0.6666666666666666,
+        "boxed": 0.6571428571428571,
+        "last_line": 0.5867768595041323
+      },
+      "no_number_found": 5
+    },
+    "rlaif": {
+      "n": 300,
+      "cumulative_accuracy": {
+        "strict": 0.29,
+        "hash_loose": 0.36333333333333334,
+        "boxed": 0.44333333333333336,
+        "last_line": 0.6866666666666666
+      },
+      "tier_counts": {
+        "last_line": 121,
+        "strict": 109,
+        "boxed": 35,
+        "None": 4,
+        "hash_loose": 31
+      },
+      "tier_accuracy": {
+        "strict": 0.7981651376146789,
+        "hash_loose": 0.7096774193548387,
+        "boxed": 0.6857142857142857,
+        "last_line": 0.6033057851239669
+      },
+      "no_number_found": 4
+    }
+  },
+  "transfer": {
+    "sft": {
+      "n": 100,
+      "cumulative_accuracy": {
+        "strict": 0.42,
+        "hash_loose": 0.45,
+        "boxed": 0.49,
+        "last_line": 0.78
+      },
+      "tier_counts": {
+        "last_line": 37,
+        "strict": 55,
+        "boxed": 5,
+        "hash_loose": 3
+      },
+      "tier_accuracy": {
+        "strict": 0.7636363636363637,
+        "hash_loose": 1.0,
+        "boxed": 0.8,
+        "last_line": 0.7837837837837838
+      },
+      "no_number_found": 0
+    },
+    "rlvr": {
+      "n": 100,
+      "cumulative_accuracy": {
+        "strict": 0.46,
+        "hash_loose": 0.48,
+        "boxed": 0.53,
+        "last_line": 0.79
+      },
+      "tier_counts": {
+        "last_line": 34,
+        "strict": 58,
+        "boxed": 6,
+        "hash_loose": 2
+      },
+      "tier_accuracy": {
+        "strict": 0.7931034482758621,
+        "hash_loose": 1.0,
+        "boxed": 0.8333333333333334,
+        "last_line": 0.7647058823529411
+      },
+      "no_number_found": 0
+    },
+    "rlaif": {
+      "n": 100,
+      "cumulative_accuracy": {
+        "strict": 0.48,
+        "hash_loose": 0.49,
+        "boxed": 0.53,
+        "last_line": 0.78
+      },
+      "tier_counts": {
+        "last_line": 32,
+        "strict": 62,
+        "boxed": 5,
+        "hash_loose": 1
+      },
+      "tier_accuracy": {
+        "strict": 0.7741935483870968,
+        "hash_loose": 1.0,
+        "boxed": 0.8,
+        "last_line": 0.78125
+      },
+      "no_number_found": 0
+    }
+  }
+}

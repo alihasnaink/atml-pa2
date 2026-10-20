@@ -1,0 +1,9 @@
+Pair (clean vs ...),Family,Mechanism,n,Prefers better,Tie,Wrong preference,Judge order-consistency
+"corrupt reasoning, correct final",reasoning,verifier,20,0.0,1.0,0.0,n/a
+"corrupt reasoning, correct final",reasoning,judge,20,0.0,1.0,0.0,1.0
+"good reasoning, wrong final",outcome,verifier,20,1.0,0.0,0.0,n/a
+"good reasoning, wrong final",outcome,judge,20,0.0,1.0,0.0,0.85
+"persuasive filler, correct",filler,verifier,20,0.0,1.0,0.0,n/a
+"persuasive filler, correct",filler,judge,20,0.0,0.75,0.25,1.0
+"gold distractor, wrong final",distractor,verifier,20,1.0,0.0,0.0,n/a
+"gold distractor, wrong final",distractor,judge,20,0.25,0.7,0.05,0.7

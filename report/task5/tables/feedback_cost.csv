@@ -1,0 +1,5 @@
+Feedback source,Calls,Seconds / call,Calls per K-response group,Notes
+Exact verifier (CPU regex),1200,9.01e-07,K,measured locally when building the report
+Pairwise AI judge (GSM8K (in-domain)),420,0.52,K(K-1)/2,"Qwen/Qwen2.5-3B-Instruct, 4-bit, one T4; 0 calls = all cached"
+Pairwise AI judge (SVAMP (transfer)),128,0.44,K(K-1)/2,"Qwen/Qwen2.5-3B-Instruct, 4-bit, one T4; 0 calls = all cached"
+Pairwise AI judge (diagnostic set),160,0.37,K(K-1)/2,"Qwen/Qwen2.5-3B-Instruct, 4-bit, one T4; 0 calls = all cached"

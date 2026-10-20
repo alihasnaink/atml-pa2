@@ -1,0 +1,70 @@
+[gpu1] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu1] transfer: 100 prompts; policies ['sft', 'rlvr', 'rlaif']
+[gpu1]   [sft] 16/100
+[gpu1]   [sft] 32/100
+[gpu1]   [sft] 48/100
+[gpu1]   [sft] 64/100
+[gpu1]   [sft] 80/100
+[gpu1]   [sft] 96/100
+[gpu1]   [sft] 100/100
+[gpu1] [sft] -> /tmp/repo/results/task5_feedback/transfer/generations_sft.jsonl (1.4 min)
+[gpu1]   [rlvr] 16/100
+[gpu1]   [rlvr] 32/100
+[gpu1]   [rlvr] 48/100
+[gpu1]   [rlvr] 64/100
+[gpu1]   [rlvr] 80/100
+[gpu1]   [rlvr] 96/100
+[gpu1]   [rlvr] 100/100
+[gpu1] [rlvr] -> /tmp/repo/results/task5_feedback/transfer/generations_rlvr.jsonl (1.8 min)
+[gpu1]   [rlaif] 16/100
+[gpu1]   [rlaif] 32/100
+[gpu1]   [rlaif] 48/100
+[gpu1]   [rlaif] 64/100
+[gpu1]   [rlaif] 80/100
+[gpu1]   [rlaif] 96/100
+[gpu1]   [rlaif] 100/100
+[gpu1] [rlaif] -> /tmp/repo/results/task5_feedback/transfer/generations_rlaif.jsonl (1.8 min)
+[gpu1] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.20s/it]
+[gpu1] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[gpu1]   judged sft vs rlvr
+[gpu1]   judged sft vs rlaif
+[gpu1]   judged rlvr vs rlaif
+[gpu1] [sft] acc=0.420 strict_format=0.450 tokens=163
+[gpu1] [rlvr] acc=0.460 strict_format=0.470 tokens=164
+[gpu1] [rlaif] acc=0.480 strict_format=0.500 tokens=164
+[gpu1] [rlvr vs sft] judge win rate=0.470 (W/T/L 0.08/0.78/0.14)
+[gpu1] [rlaif vs sft] judge win rate=0.460 (W/T/L 0.07/0.78/0.15)
+[gpu1] verifier-judge agreement: {'n_pairs': 300, 'n_verifier_separates': 14, 'judge_agrees': 0.14285714285714285, 'judge_tie_when_verifier_separates': 0.5714285714285714, 'judge_prefers_wrong': 0.2857142857142857, 'overall_three_way_agreement': 0.76, 'n_both_correct': 129, 'judge_breaks_tie_both_correct': 0.17829457364341086, 'n_both_wrong': 157, 'judge_breaks_tie_both_wrong': 0.2356687898089172}
+[gpu1] -> /tmp/repo/results/task5_feedback/transfer/summary.json
+[gpu1] Diagnostic problems: 20
+[gpu1] Variants/problem: ['clean_correct', 'corrupt_reasoning_correct_final', 'gold_distractor_wrong_final', 'good_reasoning_wrong_final', 'persuasive_filler_correct']
+[gpu1] Verifier vs expected_exact_reward mismatches: none
+[gpu1] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.95s/it]
+[gpu1] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[gpu1] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[gpu1]   problem 23 done
+[gpu1]   problem 103 done
+[gpu1]   problem 113 done
+[gpu1]   problem 289 done
+[gpu1]   problem 299 done
+[gpu1]   problem 459 done
+[gpu1]   problem 505 done
+[gpu1]   problem 506 done
+[gpu1]   problem 558 done
+[gpu1]   problem 569 done
+[gpu1]   problem 620 done
+[gpu1]   problem 677 done
+[gpu1]   problem 681 done
+[gpu1]   problem 736 done
+[gpu1]   problem 750 done
+[gpu1]   problem 803 done
+[gpu1]   problem 867 done
+[gpu1]   problem 1122 done
+[gpu1]   problem 1200 done
+[gpu1]   problem 1245 done
+[gpu1] corrupt_reasoning_correct_final    verifier B/T/W 0.00/1.00/0.00   judge B/T/W 0.00/1.00/0.00   judge order-consistency 1.00
+[gpu1] good_reasoning_wrong_final         verifier B/T/W 1.00/0.00/0.00   judge B/T/W 0.00/1.00/0.00   judge order-consistency 0.85
+[gpu1] persuasive_filler_correct          verifier B/T/W 0.00/1.00/0.00   judge B/T/W 0.00/0.75/0.25   judge order-consistency 1.00
+[gpu1] gold_distractor_wrong_final        verifier B/T/W 1.00/0.00/0.00   judge B/T/W 0.25/0.70/0.05   judge order-consistency 0.70
+[gpu1] S_reason: {'verifier': 0.0, 'judge': 0.0}  S_outcome: {'verifier': 1.0, 'judge': 0.0}
+[gpu1] -> /tmp/repo/results/task5_feedback/diagnostics/summary.json

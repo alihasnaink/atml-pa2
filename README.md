@@ -204,6 +204,16 @@ python -m task5_feedback.compare_feedback    --config configs/feedback.yaml     
 
 Results go to `results/task5_feedback/` and report material to `report/task5/`.
 
+Additional experiments (beyond the required steps; they help interpret the results above):
+
+```bash
+python -m task5_feedback.additional_experiments --part lenient      # CPU: re-score answers with looser formats (\boxed{}, "#### $n", last line)
+python -m task5_feedback.additional_experiments --part judge_probe  # GPU: raw judge outputs + A/B/TIE probabilities, both orders
+python -m task5_feedback.additional_experiments --part report       # -> report/task5/additional/
+```
+
+The judge probe is what `kaggle/task5_additional_kaggle.ipynb` runs. It reads the committed Task 5 generations.
+
 ## 6. Reproducibility rules
 
 - Do not alter course-provided data, cached rollouts, or supplied checkpoints.

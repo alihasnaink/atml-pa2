@@ -282,3 +282,14 @@ gold-distractor row tests verifier specification, and the filler and outcome row
 **RQ4: Which behaviors transfer to the out-of-domain set?**
 Use `tables/transfer_drop.*` (accuracy and win-rate change, length), `tables/transfer_by_type.*`, and `tables/failure_types.*`
 (e.g. whether format compliance or missing-final failures change on SVAMP, whose prompt wording differs from GSM8K).
+
+### Task 5 additional experiments (`report/task5/additional/`)
+
+Produced by `python -m task5_feedback.additional_experiments` (raw results in `results/task5_feedback/additional/`).
+These are supplementary; the official metric is still the exact verifier.
+
+| Question | Files |
+|---|---|
+| How much of the low exact accuracy is formatting, not wrong maths? Cumulative accuracy with looser answer extraction (loose `####`, `\boxed{}`, last-line number) | `tables/lenient_accuracy.*`, `tables/answer_formats.*`, `qualitative/format_examples.md` |
+| Are the judge's many TIEs real verdicts or parse failures mapped to TIE? Raw first-4-token outputs, parse-failure rate, and next-token p(A) / p(B) / p(T) | `tables/judge_raw_outputs.*`, `qualitative/judge_raw_examples.md` |
+| Position bias: does the verdict change when the A/B order is swapped? Includes identical-response pairs, where any preference comes from position alone. A soft preference from p(A) - p(B) | `tables/judge_position_bias.*` |
